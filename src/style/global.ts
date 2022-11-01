@@ -1,5 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
+
+
 const GlobalStyle = createGlobalStyle`
 *{
         margin:0;
@@ -27,6 +29,8 @@ select{
     border:none;
 }
 body{
+
+    background-color: gray;
     
 }
 
