@@ -1,5 +1,12 @@
 import styled from "styled-components";
 
 
-export const Form = styled.form``
+export const Container = styled.main`
+
+    display: flex;
+    justify-content: center;
+    padding: 100px 0 0 0; 
+
+
+`
 
