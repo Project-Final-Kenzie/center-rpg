@@ -16,7 +16,19 @@ ${({ font }: Iprops) => {
                 margin-top: 35px;
                 background-color: ${({theme}) => theme.colors.yellow.primary};
             
-            `     
+            `  
+        case "secondary":
+            return css`
+
+                width: 100%;
+                height: 45px;
+                padding: 0 10px 0 10px;
+                border-radius: 20px;
+                margin-top: 30px;
+                background-color: ${({theme}) => theme.colors.yellow.primary};
+            
+            `    
+            
     }
 }}
 
