@@ -1,8 +1,8 @@
-import { userHistoriesContext } from "../../contexts/HistoriesContext"
+import { UserHistoriesContext } from "../../contexts/HistoriesContext"
 import { IhistoriesData } from "../../interface/typeHistories"
 
 const Home = () => {
-    const { historiesData, loading } = userHistoriesContext()
+    const { historiesData, loading } = UserHistoriesContext()
 
     if(!loading){
         return <p>Carregando...</p>
@@ -16,13 +16,13 @@ const Home = () => {
             </header>
             <div>
                 <ul>
-                {historiesData.map((historie: IhistoriesData)=>{
+                {historiesData?.map((historie: IhistoriesData)=>{
                     return(
                             <li key={`${historie.id}`}>
                             <img src={historie.photo} alt={historie.title} />
                             <div>
-                                <p>${historie.title}</p>
-                                <p>${historie.description}</p>
+                                <p>{historie.title}</p>
+                                <p>{historie.description}</p>
                                 <button>Ver Mais</button>
                             </div>
                         </li>

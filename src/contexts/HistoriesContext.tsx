@@ -4,7 +4,7 @@ import { Api } from "../services/api";
 import { IhistoriesData} from "../interface/typeHistories";
 
 interface IHistoriesContext{
-    historiesData?: IhistoriesData;
+    historiesData?: IhistoriesData[];
     loading?: boolean;
     getHistoriesData?: () => Promise<void>;
 }
@@ -12,7 +12,7 @@ interface IHistoriesContext{
 const HistoriesContext = createContext<IHistoriesContext>({} as IHistoriesContext)
 
 const HistoriesProvider = ({children} : IauthProviderProps) => {
-    const [historiesData, setHistoriesData] = useState<IhistoriesData>()
+    const [historiesData, setHistoriesData] = useState<IhistoriesData[]>()
     const [loading, setLoading] = useState<boolean>(false)
 
     useEffect(() =>{
@@ -37,7 +37,7 @@ const HistoriesProvider = ({children} : IauthProviderProps) => {
     )
 }
 
-export const userHistoriesContext = () =>{
+export const UserHistoriesContext = () =>{
     const context = useContext(HistoriesContext)
     return context
 }
