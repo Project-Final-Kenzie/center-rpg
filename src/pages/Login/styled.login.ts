@@ -8,6 +8,7 @@ export const Container = styled.main`
     justify-content: center;
     padding: 150px 100px 0 100px;
     background-image: url(${background});
+    height: 100vh;
     
 
 `
