@@ -1,2 +1,2 @@
-export const BaseUrl = "https://kenziehub.herokuapp.com/"
+export const BaseUrl = "http://localhost:3000"
 
