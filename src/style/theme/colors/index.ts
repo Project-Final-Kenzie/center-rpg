@@ -3,8 +3,8 @@
 const colors = {
   gray: {
     primary: "#212121",
-    secondary: "",
-    tertiary: "",
+    secondary: "#2E2A2A",
+    tertiary: "#787474",
     quartiary: "",
   },
   yellow: {
