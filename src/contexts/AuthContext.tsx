@@ -1,17 +1,23 @@
 import { IauthProviderProps } from "../interface/typeUsers";
 import { createContext, useState, useEffect } from "react";
-import { IuserRegister, IloginUser } from "../interface/typeUsers";
-import { postRegister, postLogin } from "../services/authRequests";
+import {
+  IdataRegister,
+  IdataLogin,
+  IRegisterResponse,
+  //IrequestError,
+} from "../interface/typeUsers";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Api } from "../services/api";
+//import { AxiosError } from "axios";
 
 interface IuserContextProps {
   /*Register*/
-  registerFormAction: (register: IuserRegister) => void;
+  onSubmitRegister: (dataRegister: IdataRegister) => Promise<void>;
 
   /*Login*/
-  loginFormAction: (formData: IloginUser) => void;
+  onSubmitLogin: (dataLogin: IdataLogin) => Promise<void>;
   userState: boolean;
   setUserState: React.Dispatch<React.SetStateAction<boolean>>;
 
@@ -39,60 +45,65 @@ export default function UserProvider({ children }: IauthProviderProps) {
 
   /* Register */
 
-  function registerFormAction(data: IuserRegister) {
-    delete data.confirmPassword;
-    console.log(data);
-
-    postRegister(data, postRegisterUserOk, postRegisterError);
-    function postRegisterUserOk(response: any) {
+  const onSubmitRegister = async (dataRegister: IdataRegister) => {
+    try {
+      const { data } = await Api.post<IRegisterResponse>(
+        "/users",
+        dataRegister
+      );
       const notifySucess = (message: string) => toast.success(message);
       notifySucess("Foi cadastrado com sucesso!");
-      navigate("/login");
-    }
-    function postRegisterError(response: any) {
+      setLoading(false);
+      localStorage.setItem("@TOKEN", data.accessToken);
+      localStorage.setItem("@USERID", data.user.id);
+      const userData = JSON.stringify(data.user);
+      localStorage.setItem("@USERINFO", userData);
+      navigate("/home");
+    } catch (error: any) {
       const notifyError = (message: string) => toast.error(message);
+      const err: string = error.response?.data;
+      if (err === "Email already exists") {
+        notifyError("Este email já está registrado!");
+        navigate("/register");
+        return;
+      }
       notifyError("Não foi possível cadastrar!");
-      return;
+      setLoading(false);
     }
-  }
+  };
 
   /* Login */
 
-  function loginFormAction(data: IloginUser) {
-    setLoading(true);
-    postLogin(data, postLoginOk, postLoginError);
-
-    function postLoginOk(response: any) {
+  const onSubmitLogin = async (dataLogin: IdataLogin) => {
+    try {
+      const { data } = await Api.post<IRegisterResponse>("/login", dataLogin);
       const notifySucess = (message: string) => toast.success(message);
-      setUserData(response.data.user);
-      response.data.user.name && callLoginPage();
-      function callLoginPage() {
+      setUserData(data.user);
+      if (data.user) {
         setLoading(false);
-        localStorage.setItem("@TOKEN", response.data.accessToken);
-        localStorage.setItem("@USERID", response.data.user.id);
-        const userData = JSON.stringify(response.data.user);
+        localStorage.setItem("@TOKEN", data.accessToken);
+        localStorage.setItem("@USERID", data.user.id);
+        const userData = JSON.stringify(data.user);
         localStorage.setItem("@USERINFO", userData);
 
         notifySucess("Login bem sucedido!");
         navigate("/home");
       }
-    }
-    function postLoginError(response: any) {
-      console.log(response);
+    } catch (error) {
       const notifyError = (message: string) => toast.error(message);
+
       setLoading(false);
       notifyError("Senha ou e-mail inválidos!");
-      return;
     }
-  }
+  };
 
   return (
     <UserContext.Provider
       value={{
         loading,
         setLoading,
-        registerFormAction,
-        loginFormAction,
+        onSubmitRegister,
+        onSubmitLogin,
         userState,
         setUserState,
         userData,

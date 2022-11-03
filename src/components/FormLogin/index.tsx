@@ -8,10 +8,10 @@ import { UserContext } from "../../contexts/AuthContext";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { IloginUser } from "../../interface/typeUsers";
+import { IdataLogin } from "../../interface/typeUsers";
 
 const FormLogin = () => {
-  const { loginFormAction } = useContext(UserContext);
+  const { onSubmitLogin } = useContext(UserContext);
 
   const formSchema = yup.object().shape({
     email: yup.string().required("Email obrigatório.").email("Email inválido"),
@@ -22,7 +22,7 @@ const FormLogin = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<IloginUser>({
+  } = useForm<IdataLogin>({
     resolver: yupResolver(formSchema),
   });
 
@@ -33,7 +33,7 @@ const FormLogin = () => {
         <h2>CENTRAL RPG</h2>
       </S.SideOne>
       <S.SideTwo>
-        <S.Form onSubmit={handleSubmit(loginFormAction)}>
+        <S.Form onSubmit={handleSubmit(onSubmitLogin)}>
           <h1>Faça o login</h1>
           <p>Faça seu login e se aventure</p>
 
@@ -45,7 +45,7 @@ const FormLogin = () => {
             placeholder="Digite seu email"
             {...register("email")}
           />
-          <p>{errors.email?.message}</p>
+          <span>{errors.email?.message}</span>
 
           <label htmlFor="password">Senha</label>
           <StyledInput
@@ -55,7 +55,7 @@ const FormLogin = () => {
             placeholder="Digite sua senha"
             {...register("password")}
           />
-          <p>{errors.password?.message}</p>
+          <span>{errors.password?.message}</span>
 
           <Button font="primary" type="submit">
             Entrar

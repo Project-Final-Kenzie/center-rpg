@@ -9,10 +9,10 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { UserContext } from "../../contexts/AuthContext";
 import * as yup from "yup";
-import { IuserRegister } from "../../interface/typeUsers";
+import { IdataRegister } from "../../interface/typeUsers";
 
 const FormRegister = () => {
-  const { registerFormAction } = useContext(UserContext);
+  const { onSubmitRegister } = useContext(UserContext);
   const formSchema = yup.object().shape({
     name: yup.string().required("Coloque seu nome"),
     email: yup
@@ -36,7 +36,7 @@ const FormRegister = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<IuserRegister>({
+  } = useForm<IdataRegister>({
     resolver: yupResolver(formSchema),
   });
 
@@ -47,7 +47,7 @@ const FormRegister = () => {
         <h2>CENTRAL RPG</h2>
       </S.SideOne>
       <S.SideTwo>
-        <S.Form onSubmit={handleSubmit(registerFormAction)}>
+        <S.Form onSubmit={handleSubmit(onSubmitRegister)}>
           <h1>Cadastro</h1>
           <S.Div>
             <S.Image src={Logo} alt="" />
@@ -62,7 +62,7 @@ const FormRegister = () => {
             placeholder="Digite seu nome"
             {...register("name")}
           />
-          <p>{errors.name?.message}</p>
+          <span>{errors.name?.message}</span>
 
           <label htmlFor="email">Email</label>
           <StyledInput
@@ -72,7 +72,7 @@ const FormRegister = () => {
             placeholder="Digite seu email"
             {...register("email")}
           />
-          <p>{errors.email?.message}</p>
+          <span>{errors.email?.message}</span>
 
           <label htmlFor="password">Senha</label>
           <StyledInput
@@ -82,7 +82,7 @@ const FormRegister = () => {
             placeholder="Digite sua senha"
             {...register("password")}
           />
-          <p>{errors.password?.message}</p>
+          <span>{errors.password?.message}</span>
 
           <label htmlFor="confirmPassword">Confirmação de senha</label>
           <StyledInput
@@ -92,7 +92,7 @@ const FormRegister = () => {
             placeholder="Confirme sua senha"
             {...register("confirmPassword")}
           />
-          <p>{errors.confirmPassword?.message}</p>
+          <span>{errors.confirmPassword?.message}</span>
 
           <label htmlFor="level">Selecione seu nível</label>
           <select id="level" {...register("level")}>
