@@ -1,25 +1,26 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { IauthProviderProps } from "../interface/typeUsers";
 import { Api } from "../services/api";
 import { IhistoriesData} from "../interface/typeHistories";
 
 interface IHistoriesContext{
-    HistoriesData?: IhistoriesData | undefined;
+    historiesData?: IhistoriesData;
+    loading?: boolean;
     getHistoriesData?: () => Promise<void>;
 }
 
-export const HistoriesContext = createContext<IHistoriesContext>({} as IHistoriesContext)
+const HistoriesContext = createContext<IHistoriesContext>({} as IHistoriesContext)
 
 const HistoriesProvider = ({children} : IauthProviderProps) => {
-    const [HistoriesData, SetHistoriesData] = useState<IhistoriesData>()
+    const [historiesData, setHistoriesData] = useState<IhistoriesData>()
+    const [loading, setLoading] = useState<boolean>(false)
 
     useEffect(() =>{
         const getHistoriesData = async () =>{
             try {
-            const { data } = await Api.get('/histories')
-            console.log(data)
-            SetHistoriesData(data)
-            
+                const { data } = await Api.get('/histories')
+                setHistoriesData(data)
+                setLoading(true)
             } catch (error) {
     
             console.error(error)
@@ -30,10 +31,14 @@ const HistoriesProvider = ({children} : IauthProviderProps) => {
     }, [])
    
     return(
-        <HistoriesContext.Provider value={{HistoriesData}}>
+        <HistoriesContext.Provider value={{historiesData, loading }}>
             {children}
         </HistoriesContext.Provider>
     )
 }
 
+export const userHistoriesContext = () =>{
+    const context = useContext(HistoriesContext)
+    return context
+}
 export default HistoriesProvider
