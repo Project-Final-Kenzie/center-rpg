@@ -66,13 +66,21 @@ export const SideOne = styled.div`
 		text-align: center;
 		margin-top: 45px;
 	}
+	@media screen and (max-width: 900px) {
+		display: none;
+	}
 `;
 
 export const SideTwo = styled.div`
 	background-color: ${({ theme }) => theme.colors.gray.primary};
-	width: 500px;
-	height: 550px;
+	max-width: 500px;
+	max-height: 550px;
+	width: 100%;
+	height: 100%;
 	border-radius: 0 8px 8px 0;
+	@media screen and (max-width: 900px) {
+		width: 90%;
+	}
 `;
 
 export const LinkStyled = styled(Link)`
