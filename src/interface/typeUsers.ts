@@ -15,7 +15,7 @@ export interface IloginUser {
   password: string;
 }
 
-export interface IuserData {
+/* export interface IuserData {
   email: string;
   password: string;
   name: string;
@@ -41,4 +41,4 @@ export interface IuserData {
   teamspeak?: string;
   skype?: string;
   whatsapp?: string;
-}
+} */
