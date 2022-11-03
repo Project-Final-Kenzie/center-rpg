@@ -1,17 +1,16 @@
-import './App.css';
-import AuthProvider from './contexts/AuthContext';
-import Routes from './routes';
-
+import "./App.css";
+import AuthProvider from "./contexts/AuthContext";
+import RoutesMain from "./routes";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
-  <>
-    <AuthProvider>
-
-      <Routes/>
-
-    </AuthProvider>
-  </>
+    <>
+      <AuthProvider>
+        <RoutesMain />
+        <ToastContainer limit={2} autoClose={1300} />
+      </AuthProvider>
+    </>
   );
 }
 
