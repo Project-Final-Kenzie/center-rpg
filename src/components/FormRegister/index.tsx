@@ -19,24 +19,49 @@ const FormRegister = () => {
 					<S.LinkStyled to='/login'>Voltar</S.LinkStyled>
 				</S.Div>
 				<S.Form>
-					<label htmlFor='name'>Nome</label>
-					<StyledInput font='secondary' type='text' id='name' placeholder='Digite seu nome' />
+					<label htmlFor='name'>
+						Nome
+						<StyledInput font='secondary' type='text' id='name' placeholder='Digite seu nome' />
+						<div>
+							<span>teste</span>
+						</div>
+					</label>
 
-					<label htmlFor='email'>Email</label>
-					<StyledInput font='secondary' type='email' id='email' placeholder='Digite seu email' />
+					<label htmlFor='email'>
+						Email
+						<StyledInput font='secondary' type='email' id='email' placeholder='Digite seu email' />
+						<div>
+							<span>teste</span>
+						</div>
+					</label>
 
-					<label htmlFor='password'>Senha</label>
-					<StyledInput font='secondary' type='password' id='password' placeholder='Digite sua senha' />
+					<label htmlFor='password'>
+						Senha
+						<StyledInput font='secondary' type='password' id='password' placeholder='Digite sua senha' />
+						<div>
+							<span>teste</span>
+						</div>
+					</label>
 
-					<label htmlFor='confirmPassword'>Confirmação de senha</label>
-					<StyledInput font='secondary' type='password' id='confirmPassword' placeholder='Confirme sua senha' />
+					<label htmlFor='confirmPassword'>
+						Confirmação de senha
+						<StyledInput font='secondary' type='password' id='confirmPassword' placeholder='Confirme sua senha' />
+						<div>
+							<span>teste</span>
+						</div>
+					</label>
 
-					<label htmlFor='confirmPassword'>Selecione seu nível</label>
-					<select>
-						<option value='iniciante'>Iniciante</option>
-						<option value='intermediario'>Intermediário</option>
-						<option value='avancado'>Avançado</option>
-					</select>
+					<label htmlFor='confirmPassword'>
+						Selecione seu nível
+						<select>
+							<option value='iniciante'>Iniciante</option>
+							<option value='intermediario'>Intermediário</option>
+							<option value='avancado'>Avançado</option>
+						</select>
+						<div>
+							<span>teste</span>
+						</div>
+					</label>
 
 					<Button font='secondary' type='submit'>
 						Entrar

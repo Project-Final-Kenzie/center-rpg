@@ -7,7 +7,7 @@ export const Form = styled.form`
 	flex-direction: column;
 	gap: 1rem;
 	width: 100%;
-	height: 100%;
+	/* height: 100%; */
 	padding: 0 30px 0 30px;
 
 	h1 {
@@ -27,20 +27,19 @@ export const Form = styled.form`
 	}
 
 	label {
-		font-size: 0.8rem;
+		font-size: 0.9rem;
 		color: ${({ theme }) => theme.colors.white.primary};
 		font-weight: 200;
 	}
 
-	span {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		font-size: 0.9rem;
-		font-weight: 200;
-		color: ${({ theme }) => theme.colors.white.primary};
-		text-align: center;
-		gap: 0.3rem;
+	div {
+		border: 1px transparent solid;
+		width: 100%;
+		height: 15px;
+		span {
+			font-size: 0.8rem;
+			/* display: none; */
+		}
 	}
 	@media screen and (max-width: 900px) {
 		height: 90%;
@@ -76,6 +75,10 @@ export const SideTwo = styled.div`
 	width: 100%;
 	height: 100%;
 	border-radius: 0 8px 8px 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	img {
 		display: none;
 	}
@@ -87,6 +90,17 @@ export const SideTwo = styled.div`
 		img {
 			display: inline;
 		}
+	}
+	.help-text {
+		margin-top: 1rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 0.9rem;
+		font-weight: 200;
+		color: ${({ theme }) => theme.colors.white.primary};
+		text-align: center;
+		gap: 0.3rem;
 	}
 `;
 

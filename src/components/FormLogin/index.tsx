@@ -16,21 +16,30 @@ const FormLogin = () => {
 					<h1>Faça o login</h1>
 					<p>Faça seu login e se aventure</p>
 
-					<label htmlFor='email'>Email</label>
-					<StyledInput font='primary' type='email' id='email' placeholder='Digite seu email' />
+					<label htmlFor='email'>
+						Email
+						<StyledInput font='primary' type='email' id='email' placeholder='Digite seu email' />
+						<div>
+							<span>teste</span>
+						</div>
+					</label>
 
-					<label htmlFor='password'>Senha</label>
-					<StyledInput font='primary' type='password' id='password' placeholder='Digite sua senha' />
+					<label htmlFor='password'>
+						Senha
+						<StyledInput font='primary' type='password' id='password' placeholder='Digite sua senha' />
+						<div>
+							<span>teste</span>
+						</div>
+					</label>
 
 					<Button font='primary' type='submit'>
 						Entrar
 					</Button>
-
-					<span>
-						Não tem conta?
-						<S.LinkStyled to={'/register'}>Registre-se</S.LinkStyled>
-					</span>
 				</S.Form>
+				<span className='help-text'>
+					Não tem conta?
+					<S.LinkStyled to={'/register'}>Registre-se</S.LinkStyled>
+				</span>
 			</S.SideTwo>
 		</>
 	);

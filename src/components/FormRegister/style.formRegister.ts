@@ -27,7 +27,7 @@ export const Form = styled.form`
 	}
 
 	label {
-		font-size: 0.8rem;
+		font-size: 0.9rem;
 		color: ${({ theme }) => theme.colors.white.primary};
 		font-weight: 200;
 	}
@@ -38,6 +38,15 @@ export const Form = styled.form`
 		padding: 0 10px 0 10px;
 		border-radius: 0.5rem;
 		background-color: ${({ theme }) => theme.colors.white.tertiary};
+	}
+	div {
+		border: 1px transparent solid;
+		width: 100%;
+		height: 15px;
+	}
+	span {
+		font-size: 0.8rem;
+		/* display: none; */
 	}
 `;
 
