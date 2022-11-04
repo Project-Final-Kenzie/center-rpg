@@ -46,6 +46,8 @@ export default function UserProvider({ children }: IauthProviderProps) {
   /* Register */
 
   const onSubmitRegister = async (dataRegister: IdataRegister) => {
+    setLoading(true);
+    delete dataRegister.confirmPassword;
     try {
       const { data } = await Api.post<IRegisterResponse>(
         "/users",
@@ -61,13 +63,16 @@ export default function UserProvider({ children }: IauthProviderProps) {
       navigate("/home");
     } catch (error: any) {
       const notifyError = (message: string) => toast.error(message);
-      const err: string = error.response?.data;
-      if (err === "Email already exists") {
-        notifyError("Este email já está registrado!");
-        navigate("/register");
-        return;
+      let err: string = "";
+      if (error.response.data) {
+        err = error.response.data;
+      } else {
+        err = "Não foi possível cadastrar!";
       }
-      notifyError("Não foi possível cadastrar!");
+      if (err === "Email already exists") {
+        err = "Este email já está registrado!";
+      }
+      notifyError(err);
       setLoading(false);
     }
   };
@@ -75,6 +80,7 @@ export default function UserProvider({ children }: IauthProviderProps) {
   /* Login */
 
   const onSubmitLogin = async (dataLogin: IdataLogin) => {
+    setLoading(true);
     try {
       const { data } = await Api.post<IRegisterResponse>("/login", dataLogin);
       const notifySucess = (message: string) => toast.success(message);
@@ -83,6 +89,7 @@ export default function UserProvider({ children }: IauthProviderProps) {
         setLoading(false);
         localStorage.setItem("@TOKEN", data.accessToken);
         localStorage.setItem("@USERID", data.user.id);
+
         const userData = JSON.stringify(data.user);
         localStorage.setItem("@USERINFO", userData);
 

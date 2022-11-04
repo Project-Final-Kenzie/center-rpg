@@ -7,16 +7,11 @@ import { useContext } from "react";
 import { UserContext } from "../../contexts/AuthContext";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
 import { IdataLogin } from "../../interface/typeUsers";
+import { formSchema } from "../../validations/loginUser";
 
 const FormLogin = () => {
   const { onSubmitLogin } = useContext(UserContext);
-
-  const formSchema = yup.object().shape({
-    email: yup.string().required("Email obrigatório.").email("Email inválido"),
-    password: yup.string().required("Senha obrigatorio"),
-  });
 
   const {
     register,
