@@ -11,4 +11,5 @@ export const Container = styled.main`
 	-moz-background-size: cover;
 	background-size: cover;
 	height: 100vh;
+	width: 100vw;
 `;

@@ -3,8 +3,11 @@ import { Link } from 'react-router-dom';
 
 export const Form = styled.form`
 	display: flex;
+	justify-content: center;
 	flex-direction: column;
 	padding: 0 30px 0 30px;
+	width: 100%;
+	height: 100%;
 
 	h1 {
 		font-size: 35px;
@@ -12,7 +15,6 @@ export const Form = styled.form`
 		line-height: 24px;
 		color: ${({ theme }) => theme.colors.white.primary};
 		text-align: center;
-		margin-top: 30px;
 	}
 
 	p {

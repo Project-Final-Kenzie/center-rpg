@@ -7,6 +7,7 @@ const colors = {
 	},
 	yellow: {
 		primary: '#f2ef33ba',
+		secondary: '#f2ef33',
 	},
 
 	white: {
