@@ -46,6 +46,9 @@ export const Form = styled.form`
 
 export const SideOne = styled.div`
 	background-color: ${({ theme }) => theme.colors.yellow.primary};
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	max-width: 500px;
 	max-height: 550px;
 	width: 100%;
@@ -53,10 +56,9 @@ export const SideOne = styled.div`
 	border-radius: 8px 0 0 8px;
 
 	img {
-		width: 350px;
+		width: 450px;
 		display: flex;
 		align-items: center;
-		margin: 60px auto 0 auto;
 	}
 
 	h2 {
@@ -78,8 +80,15 @@ export const SideTwo = styled.div`
 	width: 100%;
 	height: 100%;
 	border-radius: 0 8px 8px 0;
+	img {
+		display: none;
+	}
 	@media screen and (max-width: 900px) {
 		width: 90%;
+		img {
+			display: inline;
+			width: 80px;
+		}
 	}
 `;
 

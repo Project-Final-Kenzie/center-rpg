@@ -1,12 +1,12 @@
 const colors = {
 	gray: {
-		primary: 'rgb(33 33 33 / 82%)',
+		primary: '#212121c7',
 		secondary: '#2E2A2A',
 		tertiary: '#787474',
 		quartiary: '',
 	},
 	yellow: {
-		primary: '#F2EF33',
+		primary: '#f2ef33ba',
 	},
 
 	white: {

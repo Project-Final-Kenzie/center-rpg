@@ -45,15 +45,17 @@ export const SideOne = styled.div`
 	background-color: ${({ theme }) => theme.colors.yellow.primary};
 	max-width: 500px;
 	max-height: 650px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	width: 100%;
 	height: 100%;
 	border-radius: 8px 0 0 8px;
 
 	img {
-		width: 400px;
+		width: 450px;
 		display: flex;
 		align-items: center;
-		margin: 60px auto 0 auto;
 	}
 
 	h2 {
@@ -80,7 +82,11 @@ export const SideTwo = styled.div`
 `;
 
 export const Image = styled.img`
+	display: none;
 	width: 50px;
+	@media screen and (max-width: 900px) {
+		display: inline;
+	}
 `;
 
 export const Div = styled.div`
