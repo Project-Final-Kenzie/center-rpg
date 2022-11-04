@@ -1,5 +1,5 @@
 import logo from '../../assets/img/logo.svg';
-import bkgLogo from '../../assets/img/multples-dices.svg';
+import brand from '../../assets/img/logo-branca.svg';
 import { Button } from '../Button/style.button';
 import { StyledInput } from '../Input/style.input';
 import * as S from './style.formLogin';
@@ -9,10 +9,9 @@ const FormLogin = () => {
 		<>
 			<S.SideOne>
 				<img src={logo} alt='' />
-				{/* <img src={bkgLogo} alt='' /> */}
 			</S.SideOne>
 			<S.SideTwo>
-				<img src={logo} alt='' />
+				<img src={brand} alt='' />
 				<S.Form>
 					<h1>Faça o login</h1>
 					<p>Faça seu login e se aventure</p>

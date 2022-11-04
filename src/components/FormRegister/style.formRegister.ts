@@ -8,7 +8,7 @@ export const Form = styled.form`
 	padding: 0 30px 0 30px;
 	gap: 1rem;
 	width: 100%;
-	height: 100%;
+	/* height: 100%; */
 
 	h1 {
 		font-size: 2.4rem;
@@ -68,9 +68,23 @@ export const SideTwo = styled.div`
 	width: 500px;
 	height: 650px;
 	border-radius: 0 8px 8px 0;
+	display: flex;
+	flex-direction: column;
+	gap: 1.4rem;
+	align-items: center;
+	justify-content: center;
+	h1 {
+		font-size: 2.4rem;
+		font-weight: 500;
+		line-height: 24px;
+		color: ${({ theme }) => theme.colors.white.primary};
+		text-align: center;
+	}
 
 	@media screen and (max-width: 900px) {
 		width: 90%;
+		display: flex;
+		flex-direction: column;
 	}
 `;
 
@@ -85,6 +99,7 @@ export const Image = styled.img`
 export const Div = styled.div`
 	display: flex;
 	justify-content: space-between;
+	width: 90%;
 `;
 
 export const LinkStyled = styled(Link)`

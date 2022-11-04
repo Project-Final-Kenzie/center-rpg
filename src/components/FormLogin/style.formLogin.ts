@@ -42,6 +42,9 @@ export const Form = styled.form`
 		text-align: center;
 		gap: 0.3rem;
 	}
+	@media screen and (max-width: 900px) {
+		height: 90%;
+	}
 `;
 
 export const SideOne = styled.div`
@@ -77,10 +80,12 @@ export const SideTwo = styled.div`
 		display: none;
 	}
 	@media screen and (max-width: 900px) {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 		width: 90%;
 		img {
 			display: inline;
-			width: 80px;
 		}
 	}
 `;

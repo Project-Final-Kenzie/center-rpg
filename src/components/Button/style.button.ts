@@ -12,6 +12,7 @@ export const Button = styled.button`
 					border-radius: 20px;
 					background-color: ${({ theme }) => theme.colors.yellow.secondary};
 					transition: 0.8s;
+					margin-top: 1rem;
 
 					&:hover {
 						filter: brightness(0.9);
@@ -25,6 +26,8 @@ export const Button = styled.button`
 					border-radius: 20px;
 					background-color: ${({ theme }) => theme.colors.yellow.secondary};
 					transition: 0.8s;
+					margin-top: 1rem;
+
 					&:hover {
 						filter: brightness(0.9);
 					}
