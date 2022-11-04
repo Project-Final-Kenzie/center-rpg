@@ -6,11 +6,12 @@ export const Form = styled.form`
 	justify-content: center;
 	flex-direction: column;
 	padding: 0 30px 0 30px;
+	gap: 1rem;
 	width: 100%;
 	height: 100%;
 
 	h1 {
-		font-size: 35px;
+		font-size: 2.4rem;
 		font-weight: 500;
 		line-height: 24px;
 		color: ${({ theme }) => theme.colors.white.primary};
@@ -18,27 +19,24 @@ export const Form = styled.form`
 	}
 
 	p {
-		font-size: 16px;
+		font-size: 1rem;
 		font-weight: 200;
 		line-height: 24px;
 		color: ${({ theme }) => theme.colors.white.secondary};
 		text-align: center;
-		margin-top: 20px;
 	}
 
 	label {
-		font-size: 14px;
+		font-size: 0.8rem;
 		color: ${({ theme }) => theme.colors.white.primary};
 		font-weight: 200;
-		margin-bottom: 10px;
-		margin-top: 20px;
 	}
 
 	select {
 		width: 100%;
-		height: 40px;
+		height: 2.6rem;
 		padding: 0 10px 0 10px;
-		border-radius: 8px;
+		border-radius: 0.5rem;
 		background-color: ${({ theme }) => theme.colors.white.tertiary};
 	}
 `;
@@ -60,13 +58,6 @@ export const SideOne = styled.div`
 		align-items: center;
 	}
 
-	h2 {
-		font-size: 55px;
-		font-weight: 500;
-		color: ${({ theme }) => theme.colors.white.primary};
-		text-align: center;
-		margin-top: 45px;
-	}
 	@media screen and (max-width: 900px) {
 		display: none;
 	}
@@ -92,7 +83,6 @@ export const Image = styled.img`
 `;
 
 export const Div = styled.div`
-	margin-top: 25px;
 	display: flex;
 	justify-content: space-between;
 `;
@@ -106,7 +96,7 @@ export const LinkStyled = styled(Link)`
 	height: 30px;
 	padding: 10px;
 	border-radius: 8px;
-	font-size: 14px;
+	font-size: 0.8rem;
 	color: ${({ theme }) => theme.colors.gray.secondary};
 	font-weight: 200;
 	background-color: ${({ theme }) => theme.colors.gray.tertiary};

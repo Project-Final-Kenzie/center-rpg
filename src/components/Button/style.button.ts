@@ -10,7 +10,6 @@ export const Button = styled.button`
 					height: 50px;
 					padding: 0 10px 0 10px;
 					border-radius: 20px;
-					margin-top: 35px;
 					background-color: ${({ theme }) => theme.colors.yellow.secondary};
 					transition: 0.8s;
 
@@ -24,7 +23,6 @@ export const Button = styled.button`
 					height: 45px;
 					padding: 0 10px 0 10px;
 					border-radius: 20px;
-					margin-top: 30px;
 					background-color: ${({ theme }) => theme.colors.yellow.secondary};
 					transition: 0.8s;
 					&:hover {

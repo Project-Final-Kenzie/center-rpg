@@ -5,43 +5,42 @@ export const Form = styled.form`
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
+	gap: 1rem;
 	width: 100%;
 	height: 100%;
 	padding: 0 30px 0 30px;
 
 	h1 {
-		font-size: 35px;
+		font-size: 2rem;
 		font-weight: 500;
-		line-height: 24px;
+		line-height: 1rem;
 		color: ${({ theme }) => theme.colors.white.primary};
 		text-align: center;
 	}
 
 	p {
-		font-size: 16px;
+		font-size: 1rem;
 		font-weight: 200;
-		line-height: 24px;
+		line-height: 1rem;
 		color: ${({ theme }) => theme.colors.white.secondary};
 		text-align: center;
-		margin-top: 20px;
 	}
 
 	label {
-		font-size: 14px;
+		font-size: 0.8rem;
 		color: ${({ theme }) => theme.colors.white.primary};
 		font-weight: 200;
-		margin-bottom: 10px;
 	}
 
 	span {
 		display: flex;
 		align-items: center;
-		margin: 20px auto;
-		font-size: 12px;
+		justify-content: center;
+		font-size: 0.9rem;
 		font-weight: 200;
 		color: ${({ theme }) => theme.colors.white.primary};
 		text-align: center;
-		gap: 5px;
+		gap: 0.3rem;
 	}
 `;
 
@@ -62,13 +61,6 @@ export const SideOne = styled.div`
 		align-items: center;
 	}
 
-	h2 {
-		font-size: 48px;
-		font-weight: 500;
-		color: ${({ theme }) => theme.colors.white.primary};
-		text-align: center;
-		margin-top: 45px;
-	}
 	@media screen and (max-width: 900px) {
 		display: none;
 	}
@@ -95,7 +87,7 @@ export const SideTwo = styled.div`
 
 export const LinkStyled = styled(Link)`
 	display: block;
-	font-size: 12px;
+	font-size: 0.7rem;
 	font-weight: 200;
 	color: ${({ theme }) => theme.colors.white.primary};
 	text-decoration: none;
