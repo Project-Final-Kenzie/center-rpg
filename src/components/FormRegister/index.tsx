@@ -36,52 +36,62 @@ const FormRegister = () => {
             <S.LinkStyled to="/login">Voltar</S.LinkStyled>
           </S.Div>
 
-          <label htmlFor="name">Nome</label>
-          <StyledInput
-            font="secondary"
-            type="text"
-            id="name"
-            placeholder="Digite seu nome"
-            {...register("name")}
-          />
-          <span>{errors.name?.message}</span>
+          <S.InputDiv>
+            <label htmlFor="name">Nome</label>
+            <StyledInput
+              font="secondary"
+              type="text"
+              id="name"
+              placeholder="Digite seu nome"
+              {...register("name")}
+            />
+            <S.ErrorMessage>{errors.name?.message}</S.ErrorMessage>
+          </S.InputDiv>
 
-          <label htmlFor="email">Email</label>
-          <StyledInput
-            font="secondary"
-            type="email"
-            id="email"
-            placeholder="Digite seu email"
-            {...register("email")}
-          />
-          <span>{errors.email?.message}</span>
+          <S.InputDiv>
+            <label htmlFor="email">Email</label>
+            <StyledInput
+              font="secondary"
+              type="email"
+              id="email"
+              placeholder="Digite seu email"
+              {...register("email")}
+            />
+            <S.ErrorMessage>{errors.email?.message}</S.ErrorMessage>
+          </S.InputDiv>
 
-          <label htmlFor="password">Senha</label>
-          <StyledInput
-            font="secondary"
-            type="password"
-            id="password"
-            placeholder="Digite sua senha"
-            {...register("password")}
-          />
-          <span>{errors.password?.message}</span>
+          <S.InputDiv>
+            <label htmlFor="password">Senha</label>
+            <StyledInput
+              font="secondary"
+              type="password"
+              id="password"
+              placeholder="Digite sua senha"
+              {...register("password")}
+            />
+            <S.ErrorMessage>{errors.password?.message}</S.ErrorMessage>
+          </S.InputDiv>
 
-          <label htmlFor="confirmPassword">Confirmação de senha</label>
-          <StyledInput
-            font="secondary"
-            type="password"
-            id="confirmPassword"
-            placeholder="Confirme sua senha"
-            {...register("confirmPassword")}
-          />
-          <span>{errors.confirmPassword?.message}</span>
+          <S.InputDiv>
+            <label htmlFor="confirmPassword">Confirmação de senha</label>
+            <StyledInput
+              font="secondary"
+              type="password"
+              id="confirmPassword"
+              placeholder="Confirme sua senha"
+              {...register("confirmPassword")}
+            />
+            <S.ErrorMessage>{errors.confirmPassword?.message}</S.ErrorMessage>
+          </S.InputDiv>
 
-          <label htmlFor="level">Selecione seu nível</label>
-          <select id="level" {...register("level")}>
-            <option value="iniciante">Iniciante</option>
-            <option value="intermediario">Intermediário</option>
-            <option value="avancado">Avançado</option>
-          </select>
+          <S.InputDiv>
+            <label htmlFor="level">Selecione seu nível</label>
+            <select id="level" {...register("level")}>
+              <option value="iniciante">Iniciante</option>
+              <option value="intermediario">Intermediário</option>
+              <option value="avancado">Avançado</option>
+            </select>
+          </S.InputDiv>
 
           <Button font="secondary" type="submit">
             Entrar

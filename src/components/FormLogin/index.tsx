@@ -32,31 +32,35 @@ const FormLogin = () => {
           <h1>Faça o login</h1>
           <p>Faça seu login e se aventure</p>
 
-          <label htmlFor="email">Email</label>
-          <StyledInput
-            font="primary"
-            type="email"
-            id="email"
-            placeholder="Digite seu email"
-            {...register("email")}
-          />
-          <span>{errors.email?.message}</span>
+          <S.InputDiv>
+            <label htmlFor="email">Email</label>
+            <StyledInput
+              font="primary"
+              type="email"
+              id="email"
+              placeholder="Digite seu email"
+              {...register("email")}
+            />
+            <S.ErrorMessage>{errors.email?.message}</S.ErrorMessage>
+          </S.InputDiv>
 
-          <label htmlFor="password">Senha</label>
-          <StyledInput
-            font="primary"
-            type="password"
-            id="password"
-            placeholder="Digite sua senha"
-            {...register("password")}
-          />
-          <span>{errors.password?.message}</span>
+          <S.InputDiv>
+            <label htmlFor="password">Senha</label>
+            <StyledInput
+              font="primary"
+              type="password"
+              id="password"
+              placeholder="Digite sua senha"
+              {...register("password")}
+            />
+            <S.ErrorMessage>{errors.password?.message}</S.ErrorMessage>
+          </S.InputDiv>
 
           <Button font="primary" type="submit">
             Entrar
           </Button>
 
-          <span>
+          <span className="messageBox">
             Não tem conta?
             <S.LinkStyled to={"/register"}>Registre-se</S.LinkStyled>
           </span>

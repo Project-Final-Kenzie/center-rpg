@@ -2,5 +2,5 @@ import * as yup from "yup";
 
 export const formSchema = yup.object().shape({
   email: yup.string().required("Email obrigatório.").email("Email inválido"),
-  password: yup.string().required("Senha obrigatorio"),
+  password: yup.string().required("Senha obrigatoria."),
 });
