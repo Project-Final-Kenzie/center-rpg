@@ -112,8 +112,10 @@ const Dashboard = () => {
     <>
       <StyledContainer>
         <StyledHeader>
-          <img src={logo} alt="logotipo" />
-          <Logout>logout</Logout>
+          <div>
+            <img src={logo} alt="logotipo" />
+            <Logout>logout</Logout>
+          </div>
         </StyledHeader>
         <CreateCamp>Criar Campanha</CreateCamp>
         <ul>

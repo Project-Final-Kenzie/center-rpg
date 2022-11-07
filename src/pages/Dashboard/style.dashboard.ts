@@ -29,7 +29,6 @@ export const Logout = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 30px;
 
   font-family: "Roboto";
   font-style: normal;
