@@ -11,10 +11,11 @@ export const StyledContainer = styled.main`
 
   ul {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 70%;
-    margin: auto;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 90%;
+    margin: 0 auto;
     padding: 5px;
     flex-wrap: wrap;
     padding-bottom: 25px;
@@ -43,17 +44,6 @@ export const LinkStyled = styled(Link)`
 
   color: #454545;
   text-decoration: none;
-`;
-
-export const StyledSlide = styled.section`
-  height: 220px;
-  width: 66vw;
-  background: #ffffff;
-  box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-  border-radius: 8px;
-  margin: auto;
-  margin-top: 24px;
-  margin-bottom: 24px;
 `;
 
 export const History = styled.li`
