@@ -1,28 +1,16 @@
 import { StyledHeader } from "../../components/Header/styled.header";
-import {
-  History,
-  LinkStyled,
-  StyledContainer,
-} from "./styled.home";
-
+import { History, LinkStyled, StyledContainer } from "./styled.home";
 
 //import { UserHistoriesContext } from "../../contexts/HistoriesContext";
 //import { IhistoriesData } from "../../interface/typeHistories";
 
-import logo from "../../assets/img/Logoex.svg";
-import {
-  StyledDevelopes,
-  StyledFooter,
-  StyledLogo,
-  StyledSocial,
-} from "../../components/Footer/styled.footer";
+import logo from "../../assets/img/d20.svg";
 import { Carousel } from "../../components/carousel";
 
-
 const Home = () => {
-	//const { historiesData, loading } = UserHistoriesContext();
+  //const { historiesData, loading } = UserHistoriesContext();
 
-	/*if (!loading) {
+  /*if (!loading) {
     return <p>Carregando...</p>;
   }
   Comentado para poder estilizar o retorno abaixo
@@ -99,12 +87,14 @@ const Home = () => {
     <>
       <StyledContainer>
         <StyledHeader>
-          <img src={logo} alt="logotipo" />
-          <LinkStyled to={"/login"}>Login</LinkStyled>
+          <div>
+            <img src={logo} alt="logotipo" />
+            <LinkStyled to={"/login"}>Login</LinkStyled>
+          </div>
         </StyledHeader>
 
-          <Carousel/>
-          
+        <Carousel />
+
         <ul>
           {historiesData?.map((h /*: IhistoriesData*/) => {
             return (
@@ -122,150 +112,6 @@ const Home = () => {
           })}
         </ul>
       </StyledContainer>
-
-      <StyledFooter>
-        <StyledLogo>
-          <img src={logo} alt="logotipo" />
-          <span>Central RPG</span>
-        </StyledLogo>
-
-        <StyledSocial>
-          <span>Rede sociais</span>
-          <ul>
-            <li>
-              <img
-                src="https://st.depositphotos.com/1144386/4493/v/600/depositphotos_44935873-stock-illustration-original-web-instagram-icon.jpg"
-                alt="logotipo"
-              />
-
-              <img
-                src="https://st.depositphotos.com/1144386/4493/v/600/depositphotos_44935873-stock-illustration-original-web-instagram-icon.jpg"
-                alt="logotipo"
-              />
-              <img
-                src="https://st.depositphotos.com/1144386/4493/v/600/depositphotos_44935873-stock-illustration-original-web-instagram-icon.jpg"
-                alt="logotipo"
-              />
-              <span>Silas Marques</span>
-            </li>
-
-            <li>
-              <img
-                src="https://st.depositphotos.com/1144386/4493/v/600/depositphotos_44935873-stock-illustration-original-web-instagram-icon.jpg"
-                alt="logotipo"
-              />
-
-              <img
-                src="https://st.depositphotos.com/1144386/4493/v/600/depositphotos_44935873-stock-illustration-original-web-instagram-icon.jpg"
-                alt="logotipo"
-              />
-              <img
-                src="https://st.depositphotos.com/1144386/4493/v/600/depositphotos_44935873-stock-illustration-original-web-instagram-icon.jpg"
-                alt="logotipo"
-              />
-              <span>Silas Marques</span>
-            </li>
-
-            <li>
-              <img
-                src="https://st.depositphotos.com/1144386/4493/v/600/depositphotos_44935873-stock-illustration-original-web-instagram-icon.jpg"
-                alt="logotipo"
-              />
-
-              <img
-                src="https://st.depositphotos.com/1144386/4493/v/600/depositphotos_44935873-stock-illustration-original-web-instagram-icon.jpg"
-                alt="logotipo"
-              />
-              <img
-                src="https://st.depositphotos.com/1144386/4493/v/600/depositphotos_44935873-stock-illustration-original-web-instagram-icon.jpg"
-                alt="logotipo"
-              />
-              <span>Silas Marques</span>
-            </li>
-
-            <li>
-              <img
-                src="https://st.depositphotos.com/1144386/4493/v/600/depositphotos_44935873-stock-illustration-original-web-instagram-icon.jpg"
-                alt="logotipo"
-              />
-
-              <img
-                src="https://st.depositphotos.com/1144386/4493/v/600/depositphotos_44935873-stock-illustration-original-web-instagram-icon.jpg"
-                alt="logotipo"
-              />
-              <img
-                src="https://st.depositphotos.com/1144386/4493/v/600/depositphotos_44935873-stock-illustration-original-web-instagram-icon.jpg"
-                alt="logotipo"
-              />
-              <span>Silas Marques</span>
-            </li>
-
-            <li>
-              <img
-                src="https://st.depositphotos.com/1144386/4493/v/600/depositphotos_44935873-stock-illustration-original-web-instagram-icon.jpg"
-                alt="logotipo"
-              />
-
-              <img
-                src="https://st.depositphotos.com/1144386/4493/v/600/depositphotos_44935873-stock-illustration-original-web-instagram-icon.jpg"
-                alt="logotipo"
-              />
-              <img
-                src="https://st.depositphotos.com/1144386/4493/v/600/depositphotos_44935873-stock-illustration-original-web-instagram-icon.jpg"
-                alt="logotipo"
-              />
-              <span>Silas Marques</span>
-            </li>
-
-            <li>
-              <img
-                src="https://st.depositphotos.com/1144386/4493/v/600/depositphotos_44935873-stock-illustration-original-web-instagram-icon.jpg"
-                alt="logotipo"
-              />
-
-              <img
-                src="https://st.depositphotos.com/1144386/4493/v/600/depositphotos_44935873-stock-illustration-original-web-instagram-icon.jpg"
-                alt="logotipo"
-              />
-              <img
-                src="https://st.depositphotos.com/1144386/4493/v/600/depositphotos_44935873-stock-illustration-original-web-instagram-icon.jpg"
-                alt="logotipo"
-              />
-              <span>Silas Marques</span>
-            </li>
-          </ul>
-        </StyledSocial>
-
-        <StyledDevelopes>
-          <span>Desenvolvedores:</span>
-          <div>
-            <img
-              src="https://img.freepik.com/vetores-premium/homem-perfil-caricatura_18591-58482.jpg?w=2000"
-              alt="dev"
-            />
-            <img
-              src="https://img.freepik.com/vetores-premium/homem-perfil-caricatura_18591-58482.jpg?w=2000"
-              alt="dev"
-            />
-            <img
-              src="https://img.freepik.com/vetores-premium/homem-perfil-caricatura_18591-58482.jpg?w=2000"
-              alt="dev"
-            />
-            <img
-              src="https://img.freepik.com/vetores-premium/homem-perfil-caricatura_18591-58482.jpg?w=2000"
-              alt="dev"
-            />
-            <img
-              src="https://img.freepik.com/vetores-premium/homem-perfil-caricatura_18591-58482.jpg?w=2000"
-              alt="dev"
-            />
-            <img
-              src="https://img.freepik.com/vetores-premium/homem-perfil-caricatura_18591-58482.jpg?w=2000"
-              alt="dev"
-            />
-          </div>
-        </StyledDevelopes>
-      </StyledFooter>
     </>
   );
 };
