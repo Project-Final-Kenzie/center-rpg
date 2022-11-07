@@ -11,7 +11,7 @@ export const StyledContainer = styled.main`
 
   ul {
     display: flex;
-    width: 90%;
+    width: 60%;
     margin: auto;
     padding: 5px;
     flex-wrap: wrap;
@@ -56,8 +56,11 @@ export const StyledSlide = styled.section`
 `;
 
 export const History = styled.li`
-  background: linear-gradient(180deg, #ffcf40 0%, #ffffff 100%);
-  box-shadow: 0px 10px 64px rgb(0 0 0 / 30%);
+  background: rgba(156, 156, 153, 0.3);
+
+  box-shadow: 0px 10px 64px rgba(0, 0, 0, 0.3);
+  border-radius: 30px;
+
   height: 445.24237060546875px;
   width: 300px;
 
@@ -79,11 +82,10 @@ export const History = styled.li`
     margin: 5px;
   }
   div {
-    width: 236px;
-    height: 280px;
-
-    background: #ffffff;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: 280px;
+    height: 159px;
+    background: #89898929;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
     border-radius: 8px;
   }
 
@@ -93,13 +95,12 @@ export const History = styled.li`
     font-weight: 700;
     font-size: 20px;
     line-height: 30px;
-    /* identical to box height, or 150% */
 
     display: flex;
     align-items: center;
     text-align: center;
 
-    color: #646464;
+    color: #fff500;
   }
 
   div > span {
@@ -108,11 +109,12 @@ export const History = styled.li`
     font-weight: 300;
     font-size: 12px;
     line-height: 20px;
+    /* or 167% */
 
     display: flex;
     align-items: center;
 
-    color: #000000;
+    color: #ffffff;
 
     padding: 7px;
   }
@@ -122,7 +124,7 @@ export const History = styled.li`
     height: 30px;
     bottom: 310px;
 
-    background: #ac2900;
+    background: #f2ef33;
     border-radius: 15px;
   }
 `;
