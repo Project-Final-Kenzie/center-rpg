@@ -8,6 +8,7 @@ export const StyledContainer = styled.main`
   -o-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
+  min-height: 86.5vh;
 
   ul {
     display: flex;
