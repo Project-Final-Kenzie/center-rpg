@@ -1,59 +1,141 @@
-import { useContext } from "react";
-import { UserContext } from "../../contexts/AuthContext";
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+
+import { StyledHeader } from "../../components/Header/styled.header";
+
+import logo from "../../assets/img/Logoex.svg";
+import {
+  CreateCamp,
+  History,
+  Logout,
+  StyledContainer,
+} from "./style.dashboard";
 
 const Dashboard = () => {
-  const navigate = useNavigate();
-  const { userState } = useContext(UserContext);
-
-  useEffect(() => {
-    !localStorage.getItem("@TOKEN") && navigate("/login");
-  }, []);
+  let historiesData = [
+    {
+      id: 1,
+      createdAt: "2021-03-31T15:46:05.000Z",
+      updatedAt: "2021-03-31T15:46:05.000Z",
+      owner: 1,
+      title: "História 1",
+      description:
+        "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      photo:
+        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
+      content: "Conteúdo da história 1",
+      views: 0,
+      comments: [],
+      members: [],
+      stars: 0,
+    },
+    {
+      id: 2,
+      createdAt: "2021-03-31T15:46:05.000Z",
+      updatedAt: "2021-03-31T15:46:05.000Z",
+      owner: 1,
+      title: "História 1",
+      description:
+        "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      photo:
+        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
+      content: "Conteúdo da história 1",
+      views: 0,
+      comments: [],
+      members: [],
+      stars: 0,
+    },
+    {
+      id: 3,
+      createdAt: "2021-03-31T15:46:05.000Z",
+      updatedAt: "2021-03-31T15:46:05.000Z",
+      owner: 1,
+      title: "História 1",
+      description:
+        "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      photo:
+        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
+      content: "Conteúdo da história 1",
+      views: 0,
+      comments: [],
+      members: [],
+      stars: 0,
+    },
+    {
+      id: 4,
+      createdAt: "2021-03-31T15:46:05.000Z",
+      updatedAt: "2021-03-31T15:46:05.000Z",
+      owner: 1,
+      title: "História 1",
+      description:
+        "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      photo:
+        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
+      content: "Conteúdo da história 1",
+      views: 0,
+      comments: [],
+      members: [],
+      stars: 0,
+    },
+    {
+      id: 4,
+      createdAt: "2021-03-31T15:46:05.000Z",
+      updatedAt: "2021-03-31T15:46:05.000Z",
+      owner: 1,
+      title: "História 1",
+      description:
+        "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      photo:
+        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
+      content: "Conteúdo da história 1",
+      views: 0,
+      comments: [],
+      members: [],
+      stars: 0,
+    },
+    {
+      id: 4,
+      createdAt: "2021-03-31T15:46:05.000Z",
+      updatedAt: "2021-03-31T15:46:05.000Z",
+      owner: 1,
+      title: "História 1",
+      description:
+        "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      photo:
+        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
+      content: "Conteúdo da história 1",
+      views: 0,
+      comments: [],
+      members: [],
+      stars: 0,
+    },
+  ];
 
   return (
     <>
-      {!userState ? (
-        <></>
-      ) : (
-        <>
-          <header>
-            <img src="" alt="" /> <span>Voltar</span>
-          </header>
-          <main>
-            <div>
-              <img src="" alt="" />{" "}
-              <div>
-                <h2>Dados do Mestre</h2>
+      <StyledContainer>
+        <StyledHeader>
+          <div>
+            <img src={logo} alt="logotipo" />
+            <Logout>logout</Logout>
+          </div>
+        </StyledHeader>
+        <CreateCamp>Criar Campanha</CreateCamp>
+        <ul>
+          {historiesData?.map((h /*: IhistoriesData*/) => {
+            return (
+              <History key={`${h.id}`}>
+                <img src={h.photo} alt={h.title} />
+
+                <p>{h.title}</p>
+
                 <div>
-                  <p>Nome: José</p>
-                  <p>Email: jose@gmail.com</p>
-                  <p>Discord: soje12344</p>
+                  <span>{h.description}</span>
                 </div>
-              </div>
-            </div>
-            <div>
-              <p>Duração da campanha:</p>
-              <p>Rápida</p>
-              <p>Ambientação</p>
-              <p>Medieval</p>
-              <p>Discord da campanha</p>
-              <p>Clique aqui</p>
-            </div>
-            <span>Ingressar nesta campanha</span>
-            <div></div>
-          </main>
-          <footer>
-            <img src="" alt="" />{" "}
-            <div>
-              <span>Redes Sociais</span>
-            </div>{" "}
-            <div>
-              <span>Desenvolvedores</span>
-            </div>
-          </footer>
-        </>
-      )}
+                <button>Ver Mais</button>
+              </History>
+            );
+          })}
+        </ul>
+      </StyledContainer>
     </>
   );
 };
