@@ -1,3 +1,4 @@
+
 import styled, { css } from 'styled-components';
 import { Iprops } from '../../interface/typesStyled';
 
@@ -34,4 +35,5 @@ export const Button = styled.button`
 				`;
 		}
 	}}
+>>>>>>> develop
 `;
