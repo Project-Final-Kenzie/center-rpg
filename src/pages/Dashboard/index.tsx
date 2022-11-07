@@ -1,13 +1,12 @@
-import {
-  StyledDevelopes,
-  StyledFooter,
-  StyledLogo,
-  StyledSocial,
-} from "../../components/Footer/styled.footer";
 import { StyledHeader } from "../../components/Header/styled.header";
 
 import logo from "../../assets/img/Logoex.svg";
-import { History, Logout, StyledContainer } from "./style.dashboard";
+import {
+  CreateCamp,
+  History,
+  Logout,
+  StyledContainer,
+} from "./style.dashboard";
 
 const Dashboard = () => {
   let historiesData = [
@@ -116,7 +115,7 @@ const Dashboard = () => {
           <img src={logo} alt="logotipo" />
           <Logout>logout</Logout>
         </StyledHeader>
-
+        <CreateCamp>Criar Campanha</CreateCamp>
         <ul>
           {historiesData?.map((h /*: IhistoriesData*/) => {
             return (

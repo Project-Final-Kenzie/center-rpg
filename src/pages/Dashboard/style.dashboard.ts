@@ -13,10 +13,10 @@ export const StyledContainer = styled.main`
     display: flex;
     width: 60%;
     margin: auto;
-    padding: 5px;
     flex-wrap: wrap;
-    padding-bottom: 25px;
     justify-content: space-between;
+    gap: 2rem;
+    padding-bottom: 25px;
   }
 `;
 
@@ -55,6 +55,21 @@ export const StyledSlide = styled.section`
   margin-bottom: 24px;
 `;
 
+export const CreateCamp = styled.button`
+  width: 250px;
+  height: 50px;
+  background: #fff500;
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+  border-radius: 8px;
+  display: flex;
+  margin: 29px auto;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 15px;
+  color: #717171;
+`;
+
 export const History = styled.li`
   background: rgba(156, 156, 153, 0.3);
 
@@ -69,8 +84,6 @@ export const History = styled.li`
   flex-direction: column;
   align-items: center;
   align-items: center;
-  margin-left: 16px;
-  margin-top: 30px;
   gap: 1rem;
 
   img {
@@ -109,7 +122,6 @@ export const History = styled.li`
     font-weight: 300;
     font-size: 12px;
     line-height: 20px;
-    /* or 167% */
 
     display: flex;
     align-items: center;
@@ -121,10 +133,11 @@ export const History = styled.li`
 
   button {
     width: 211px;
-    height: 30px;
-    bottom: 310px;
-
+    height: 35px;
     background: #f2ef33;
     border-radius: 15px;
+    font-weight: 700;
+    font-size: 15px;
+    color: #717171;
   }
 `;
