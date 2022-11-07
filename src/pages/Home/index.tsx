@@ -1,3 +1,4 @@
+
 import { StyledHeader } from "../../components/Header/styled.header";
 import {
   History,
@@ -267,3 +268,4 @@ const Home = () => {
 };
 
 export default Home;
+

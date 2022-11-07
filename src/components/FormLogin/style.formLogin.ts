@@ -1,97 +1,113 @@
-import styled from "styled-components";
-import {Link} from "react-router-dom"
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Form = styled.form`
-    
-    display: flex;
-    flex-direction: column;
-    padding: 0 30px 0 30px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	gap: 1rem;
+	width: 100%;
+	/* height: 100%; */
+	padding: 0 30px 0 30px;
 
-    h1{
-        font-size: 35px;
-        font-weight: 500;
-        line-height: 24px;
-        color: ${({theme}) => theme.colors.white.primary};
-        text-align: center;
-        margin-top: 40px;
-    }
+	h1 {
+		font-size: 2rem;
+		font-weight: 500;
+		line-height: 1rem;
+		color: ${({ theme }) => theme.colors.white.primary};
+		text-align: center;
+	}
 
-    p{
+	p {
+		font-size: 1rem;
+		font-weight: 200;
+		line-height: 1rem;
+		color: ${({ theme }) => theme.colors.white.secondary};
+		text-align: center;
+	}
 
-        font-size: 16px;
-        font-weight: 200;
-        line-height: 24px;
-        color: ${({theme}) => theme.colors.white.secondary};
-        text-align: center;
-        margin-top: 20px;
+	label {
+		font-size: 0.9rem;
+		color: ${({ theme }) => theme.colors.white.primary};
+		font-weight: 200;
+	}
 
-
-    }
-
-    label{
-
-        font-size: 14px;
-        color: ${({theme}) => theme.colors.white.primary};
-        font-weight: 200;
-        margin-bottom: 10px;
-        margin-top: 30px;
-    }
-
-    span{
-        display: flex;
-        align-items: center;
-        margin: 20px auto;
-        font-size: 12px;
-        font-weight: 200;
-        color: ${({theme}) => theme.colors.white.primary};
-        text-align: center;
-        gap: 5px;
-    }
-
-
-`
+	div {
+		border: 1px transparent solid;
+		width: 100%;
+		height: 15px;
+		span {
+			font-size: 0.8rem;
+			/* display: none; */
+		}
+	}
+	@media screen and (max-width: 900px) {
+		height: 90%;
+	}
+`;
 
 export const SideOne = styled.div`
+	background-color: ${({ theme }) => theme.colors.yellow.primary};
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 500px;
+	max-height: 550px;
+	width: 100%;
+	height: 100%;
+	border-radius: 8px 0 0 8px;
 
-    background-color: ${({theme}) => theme.colors.yellow.primary};
-    width: 500px;
-    height: 550px;
-    border-radius: 8px 0 0 8px;
+	img {
+		width: 450px;
+		display: flex;
+		align-items: center;
+	}
 
-    img{
-
-        width: 350px;
-        display: flex;
-        align-items: center;
-        margin: 60px auto 0 auto;
-    }
-
-    h2{
-
-        font-size: 48px;
-        font-weight:500;
-        color: ${({theme}) => theme.colors.white.primary};
-        text-align: center;
-        margin-top: 45px;
-        
-    }
-    
-
-`
+	@media screen and (max-width: 900px) {
+		display: none;
+	}
+`;
 
 export const SideTwo = styled.div`
-    background-color: ${({theme}) => theme.colors.gray.primary};
-    width: 500px;
-    height: 550px;
-    border-radius: 0 8px 8px 0;
-`
+	background-color: ${({ theme }) => theme.colors.gray.primary};
+	max-width: 500px;
+	max-height: 550px;
+	width: 100%;
+	height: 100%;
+	border-radius: 0 8px 8px 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	img {
+		display: none;
+	}
+	@media screen and (max-width: 900px) {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 90%;
+		img {
+			display: inline;
+		}
+	}
+	.help-text {
+		margin-top: 1rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 0.9rem;
+		font-weight: 200;
+		color: ${({ theme }) => theme.colors.white.primary};
+		text-align: center;
+		gap: 0.3rem;
+	}
+`;
 
 export const LinkStyled = styled(Link)`
-
-    display: block;
-    font-size: 12px;
-    font-weight: 200;
-    color: ${({theme}) => theme.colors.white.primary};
-    text-decoration: none;
-
-`
+	display: block;
+	font-size: 0.7rem;
+	font-weight: 200;
+	color: ${({ theme }) => theme.colors.white.primary};
+	text-decoration: none;
+`;
