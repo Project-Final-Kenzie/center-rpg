@@ -4,7 +4,6 @@ import {
   History,
   LinkStyled,
   StyledContainer,
-  StyledSlide,
 } from "./styled.home";
 
 //import { UserHistoriesContext } from "../../contexts/HistoriesContext";
@@ -17,6 +16,7 @@ import {
   StyledLogo,
   StyledSocial,
 } from "../../components/Footer/styled.footer";
+import { Carousel } from "../../components/carousel";
 
 const Home = () => {
   //const { historiesData, loading } = UserHistoriesContext();
@@ -102,7 +102,8 @@ const Home = () => {
           <LinkStyled to={"/login"}>Login</LinkStyled>
         </StyledHeader>
 
-        <StyledSlide></StyledSlide>
+          <Carousel/>
+          
         <ul>
           {historiesData?.map((h /*: IhistoriesData*/) => {
             return (
@@ -120,6 +121,7 @@ const Home = () => {
           })}
         </ul>
       </StyledContainer>
+
       <StyledFooter>
         <StyledLogo>
           <img src={logo} alt="logotipo" />
