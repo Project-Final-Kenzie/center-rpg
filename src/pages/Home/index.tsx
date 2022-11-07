@@ -1,11 +1,10 @@
-
 import { StyledHeader } from "../../components/Header/styled.header";
 import {
   History,
   LinkStyled,
   StyledContainer,
-  StyledSlide,
 } from "./styled.home";
+
 
 //import { UserHistoriesContext } from "../../contexts/HistoriesContext";
 //import { IhistoriesData } from "../../interface/typeHistories";
@@ -17,11 +16,13 @@ import {
   StyledLogo,
   StyledSocial,
 } from "../../components/Footer/styled.footer";
+import { Carousel } from "../../components/carousel";
+
 
 const Home = () => {
-  //const { historiesData, loading } = UserHistoriesContext();
+	//const { historiesData, loading } = UserHistoriesContext();
 
-  /*if (!loading) {
+	/*if (!loading) {
     return <p>Carregando...</p>;
   }
   Comentado para poder estilizar o retorno abaixo
@@ -102,7 +103,8 @@ const Home = () => {
           <LinkStyled to={"/login"}>Login</LinkStyled>
         </StyledHeader>
 
-        <StyledSlide></StyledSlide>
+          <Carousel/>
+          
         <ul>
           {historiesData?.map((h /*: IhistoriesData*/) => {
             return (
@@ -120,6 +122,7 @@ const Home = () => {
           })}
         </ul>
       </StyledContainer>
+
       <StyledFooter>
         <StyledLogo>
           <img src={logo} alt="logotipo" />
@@ -268,4 +271,3 @@ const Home = () => {
 };
 
 export default Home;
-
