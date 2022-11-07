@@ -1,10 +1,10 @@
-
 import { StyledHeader } from "../../components/Header/styled.header";
 import {
   History,
   LinkStyled,
   StyledContainer,
 } from "./styled.home";
+
 
 //import { UserHistoriesContext } from "../../contexts/HistoriesContext";
 //import { IhistoriesData } from "../../interface/typeHistories";
@@ -18,10 +18,11 @@ import {
 } from "../../components/Footer/styled.footer";
 import { Carousel } from "../../components/carousel";
 
-const Home = () => {
-  //const { historiesData, loading } = UserHistoriesContext();
 
-  /*if (!loading) {
+const Home = () => {
+	//const { historiesData, loading } = UserHistoriesContext();
+
+	/*if (!loading) {
     return <p>Carregando...</p>;
   }
   Comentado para poder estilizar o retorno abaixo
@@ -270,4 +271,3 @@ const Home = () => {
 };
 
 export default Home;
-
