@@ -13,9 +13,9 @@ export const StyledContainer = styled.main`
   ul {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 20px;
-    width: 90%;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 60%;
     margin: 0 auto;
     padding: 5px;
     flex-wrap: wrap;
@@ -32,7 +32,6 @@ export const LinkStyled = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 30px;
 
   font-family: "Roboto";
   font-style: normal;
@@ -48,8 +47,11 @@ export const LinkStyled = styled(Link)`
 `;
 
 export const History = styled.li`
-  background: linear-gradient(180deg, #ffcf40 0%, #ffffff 100%);
-  box-shadow: 0px 10px 64px rgb(0 0 0 / 30%);
+  background: rgba(156, 156, 153, 0.3);
+
+  box-shadow: 0px 10px 64px rgba(0, 0, 0, 0.3);
+  border-radius: 30px;
+
   height: 445.24237060546875px;
   width: 249px;
 
@@ -58,7 +60,6 @@ export const History = styled.li`
   flex-direction: column;
   align-items: center;
   align-items: center;
-  margin-left: 10px;
   gap: 1rem;
 
   img {
@@ -70,11 +71,10 @@ export const History = styled.li`
     margin: 5px;
   }
   div {
-    width: 236px;
+    width: 229px;
     height: 159px;
-
-    background: #ffffff;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: #89898929;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
     border-radius: 8px;
   }
 
@@ -84,13 +84,12 @@ export const History = styled.li`
     font-weight: 700;
     font-size: 20px;
     line-height: 30px;
-    /* identical to box height, or 150% */
 
     display: flex;
     align-items: center;
     text-align: center;
 
-    color: #646464;
+    color: #fff500;
   }
 
   div > span {
@@ -103,17 +102,18 @@ export const History = styled.li`
     display: flex;
     align-items: center;
 
-    color: #000000;
+    color: #ffffff;
 
     padding: 7px;
   }
 
   button {
     width: 211px;
-    height: 30px;
-    bottom: 310px;
-
-    background: #ac2900;
+    height: 35px;
+    background: #f2ef33;
     border-radius: 15px;
+    font-weight: 700;
+    font-size: 15px;
+    color: #717171;
   }
 `;

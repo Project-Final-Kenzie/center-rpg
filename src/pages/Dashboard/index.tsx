@@ -1,7 +1,6 @@
-
 import { StyledHeader } from "../../components/Header/styled.header";
 
-import logo from "../../assets/img/Logoex.svg";
+import logo from "../../assets/img/logo.svg";
 import {
   CreateCamp,
   History,
