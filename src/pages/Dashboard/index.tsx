@@ -1,5 +1,5 @@
 import { StyledHeader } from "../../components/Header/styled.header";
-
+import { UserHistoriesContext } from "../../contexts/HistoriesContext";
 import logo from "../../assets/img/logo.svg";
 import {
   CreateCamp,
@@ -7,8 +7,11 @@ import {
   Logout,
   StyledContainer,
 } from "./style.dashboard";
+import { Modal } from "../../components/Modal/modal";
+
 
 const Dashboard = () => {
+  const { setModalAddOpen,  ModalAddOpen } = UserHistoriesContext()
   let historiesData = [
     {
       id: 1,
@@ -75,7 +78,7 @@ const Dashboard = () => {
       stars: 0,
     },
     {
-      id: 4,
+      id: 5,
       createdAt: "2021-03-31T15:46:05.000Z",
       updatedAt: "2021-03-31T15:46:05.000Z",
       owner: 1,
@@ -91,7 +94,7 @@ const Dashboard = () => {
       stars: 0,
     },
     {
-      id: 4,
+      id: 6,
       createdAt: "2021-03-31T15:46:05.000Z",
       updatedAt: "2021-03-31T15:46:05.000Z",
       owner: 1,
@@ -111,13 +114,16 @@ const Dashboard = () => {
   return (
     <>
       <StyledContainer>
+        {ModalAddOpen && (
+          <Modal />
+        )}
         <StyledHeader>
           <div>
             <img src={logo} alt="logotipo" />
             <Logout>logout</Logout>
           </div>
         </StyledHeader>
-        <CreateCamp>Criar Campanha</CreateCamp>
+        <CreateCamp onClick={()=>{setModalAddOpen(true)}}>Criar Campanha</CreateCamp>
         <ul>
           {historiesData?.map((h /*: IhistoriesData*/) => {
             return (

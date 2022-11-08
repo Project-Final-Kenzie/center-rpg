@@ -11,3 +11,12 @@ export interface IhistoriesData{
     comments?: number;
     members?: [];
 }
+
+export interface IModalHistories{
+    description : string;
+    title : string;
+    duration : string;
+    environment : string;
+    discord : string;
+    photo : string;
+}
