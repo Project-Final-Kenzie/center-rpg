@@ -1,9 +1,10 @@
 const colors = {
 	gray: {
 		primary: '#212121c7',
-		secondary: '#2E2A2A',
+		secondary: '#212121',
 		tertiary: '#787474',
-		quartiary: '',
+		quartiary: '#5E5E5E',
+		
 	},
 	yellow: {
 		primary: '#f2ef33ba',
