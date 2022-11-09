@@ -5,7 +5,8 @@ body {
 }
 
 .swiper {
-  width: 60%;
+  width: 100%;
+  max-width: 1400px;
   height: 350px;
   margin-top: 24px;
   margin-bottom: 24px;

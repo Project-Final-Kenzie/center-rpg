@@ -18,9 +18,9 @@ export const StyledContainer = styled.main`
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 1.5rem;
+		gap: 2rem;
 		max-width: 100%;
-		width: 1200px;
+		width: 1400px;
 		flex-wrap: wrap;
 		padding-bottom: 25px;
 	}
@@ -54,10 +54,8 @@ export const History = styled.li`
 
 	box-shadow: 0px 10px 64px rgba(0, 0, 0, 0.3);
 	border-radius: 30px;
-
+	width: 300px;
 	height: 445.24237060546875px;
-	width: 249px;
-
 	border-radius: 30px;
 	display: flex;
 	flex-direction: column;
@@ -71,7 +69,6 @@ export const History = styled.li`
 		background: #ffffff;
 		box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
 		border-radius: 100%;
-		margin: 5px;
 	}
 	div {
 		width: 229px;
@@ -88,26 +85,25 @@ export const History = styled.li`
 		font-size: 20px;
 		line-height: 30px;
 
-		display: flex;
-		align-items: center;
 		text-align: center;
 
 		color: #fff500;
 	}
-
+	div {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+	}
 	div > span {
 		font-family: 'Inter';
 		font-style: normal;
 		font-weight: 300;
 		font-size: 12px;
 		line-height: 20px;
-
-		display: flex;
-		align-items: center;
-
+		text-align: center;
 		color: #ffffff;
-
-		padding: 7px;
+		padding: 0.5rem;
 	}
 
 	button {
@@ -118,5 +114,13 @@ export const History = styled.li`
 		font-weight: 700;
 		font-size: 15px;
 		color: #717171;
+	}
+	@media screen and (max-width: 900px) {
+		width: 175px;
+
+		img {
+			max-width: 100px;
+			max-height: 100px;
+		}
 	}
 `;
