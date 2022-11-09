@@ -6,6 +6,7 @@ export const Main = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   background: rgba(256, 256, 256, 0.1);
   border-radius: 80px 8px 80px 8px;
 
@@ -13,6 +14,15 @@ export const Main = styled.main`
     display: flex;
     justify-content: space-between;
     width: 90%;
+  }
+  @media (max-width: 420px) {
+    height: 600px;
+    margin: 0px;
+    .sections {
+      flex-direction: column;
+      align-items: center;
+      height: 600px;
+    }
   }
 `;
 export const CampainTitle = styled.div`

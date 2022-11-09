@@ -7,4 +7,12 @@ export const Section1 = styled.section`
   flex-direction: column;
   justify-content: space-between;
   padding-bottom: 1.8vw;
+
+  @media (max-width: 420px) {
+    flex-direction: column-reverse;
+    justify-content: disabled;
+    height: auto;
+    width: 100%;
+    align-items: center;
+  }
 `;

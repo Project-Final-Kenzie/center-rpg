@@ -10,4 +10,9 @@ export const Background = styled.div`
   background-color: black;
   background-image: url(${backDashboard1});
   background-size: cover;
+
+  @media (max-width: 420px) {
+    height: 700px;
+    justify-content: start;
+  }
 `;

@@ -4,7 +4,7 @@ import background from "../../../../assets/img/image0.png";
 export const Section2 = styled.section`
   font-family: Roboto;
   width: 48%;
-  height: 970px;
+
   border-radius: 80px 8px 80px 8px;
   display: flex;
   flex-direction: column;
@@ -14,7 +14,7 @@ export const Section2 = styled.section`
     color: white;
     height: 30px;
     font-size: 2.3vw;
-    margin-bottom: 0.2vw;
+    margin-bottom: 20px;
   }
   div {
     border-radius: 80px 8px 80px 8px;

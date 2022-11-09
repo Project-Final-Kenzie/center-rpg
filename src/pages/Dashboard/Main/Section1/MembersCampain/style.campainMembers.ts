@@ -23,4 +23,10 @@ export const CampainMembers = styled.div`
   .player {
     margin-bottom: 20px;
   }
+  @media (max-width: 420px) {
+    .members {
+      visibility: hidden;
+      height: 0px;
+    }
+  }
 `;

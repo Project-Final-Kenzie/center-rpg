@@ -11,4 +11,12 @@ export const Header = styled.header`
   img {
     max-height: 55px;
   }
+
+  @media (max-width: 420px) {
+    height: 48px;
+    padding-right: 24px;
+    img {
+      max-height: 35px;
+    }
+  }
 `;

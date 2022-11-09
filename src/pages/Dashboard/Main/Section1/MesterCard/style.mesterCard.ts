@@ -27,4 +27,22 @@ export const MesterCard = styled.div`
     line-height: max(18px, 1.6vw);
     font-size: 1.2vw;
   }
+  @media (max-width: 420px) {
+    width: 340px;
+    height: 118px;
+    border-radius: 20px 8px 20px 8px;
+    margin-top: 6px;
+    img {
+      height: 90px;
+      width: 83px;
+      border-radius: 20px 8px 20px 8px;
+    }
+    h3 {
+      font-size: 15px;
+      text-align: left;
+    }
+    p {
+      font-size: 14px;
+    }
+  }
 `;

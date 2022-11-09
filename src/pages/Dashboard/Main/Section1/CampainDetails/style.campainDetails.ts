@@ -19,4 +19,15 @@ export const CampainDetails = styled.div`
     font-size: 1.4vw;
     font-weight: 700;
   }
+  @media (max-width: 420px) {
+    span {
+      font-size: 16px;
+    }
+    .property {
+      font-size: 14px;
+    }
+    a:link {
+      font-size: 14px;
+    }
+  }
 `;

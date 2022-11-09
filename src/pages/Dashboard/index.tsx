@@ -19,10 +19,12 @@ const Dashboard = () => {
       {!userState ? (
         <></>
       ) : (
-        <S.Background>
-          <DashboardHeader />
-          <DashboardMain />
-        </S.Background>
+        <>
+          <S.Background>
+            <DashboardHeader />
+            <DashboardMain />
+          </S.Background>
+        </>
       )}
     </>
   );
