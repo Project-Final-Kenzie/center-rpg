@@ -46,6 +46,22 @@ export const LinkStyled = styled(Link)`
   text-decoration: none;
 `;
 
+export const LinkStyledRedirect = styled(Link)`
+  width: 211px;
+  height: 35px;
+  background: #f2ef33;
+  border-radius: 15px;
+  font-weight: 700;
+  font-size: 15px;
+
+  color: #717171;
+  text-decoration: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const History = styled.li`
   background: rgba(156, 156, 153, 0.3);
 
