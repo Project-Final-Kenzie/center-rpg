@@ -1,14 +1,15 @@
 import { StyledHeader } from "../../components/Header/styled.header";
-
 import logo from "../../assets/img/logo.svg";
-import {
-  CreateCamp,
-  History,
-  Logout,
-  StyledContainer,
-} from "./style.dashboard";
+import * as S from "./style.dashboard";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
+  const navigate = useNavigate();
+
+  const logOut = () => {
+    window.localStorage.clear();
+    navigate("/home");
+  };
   let historiesData = [
     {
       id: 1,
@@ -110,18 +111,18 @@ const Dashboard = () => {
 
   return (
     <>
-      <StyledContainer>
+      <S.StyledContainer>
         <StyledHeader>
           <div>
             <img src={logo} alt="logotipo" />
-            <Logout>logout</Logout>
+            <S.Logout onClick={logOut}>Logout</S.Logout>
           </div>
         </StyledHeader>
-        <CreateCamp>Criar Campanha</CreateCamp>
+        <S.CreateCamp>Criar Campanha</S.CreateCamp>
         <ul>
           {historiesData?.map((h /*: IhistoriesData*/) => {
             return (
-              <History key={`${h.id}`}>
+              <S.History key={`${h.id}`}>
                 <img src={h.photo} alt={h.title} />
 
                 <p>{h.title}</p>
@@ -130,11 +131,11 @@ const Dashboard = () => {
                   <span>{h.description}</span>
                 </div>
                 <button>Ver Mais</button>
-              </History>
+              </S.History>
             );
           })}
         </ul>
-      </StyledContainer>
+      </S.StyledContainer>
     </>
   );
 };
