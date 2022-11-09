@@ -26,8 +26,8 @@ export const StyledContainer = styled.main`
 export const LinkStyled = styled(Link)`
   width: 98px;
   height: 37px;
-  background: #ffffff;
-  box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+  background: ${({ theme }) => theme.colors.white.primary};
+  box-shadow: 0px 4px 4px ${({ theme }) => theme.colors.rgb.tertiary};
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -42,14 +42,14 @@ export const LinkStyled = styled(Link)`
   align-items: center;
   text-align: center;
 
-  color: #454545;
+  color: ${({ theme }) => theme.colors.gray.quartiary};
   text-decoration: none;
 `;
 
 export const History = styled.li`
-  background: rgba(156, 156, 153, 0.3);
+  background: ${({ theme }) => theme.colors.rgb.primary};
 
-  box-shadow: 0px 10px 64px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 10px 64px ${({ theme }) => theme.colors.rgb.primary};
   border-radius: 30px;
 
   height: 445.24237060546875px;
@@ -65,16 +65,16 @@ export const History = styled.li`
   img {
     max-width: 150px;
     max-height: 150px;
-    background: #ffffff;
-    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    background: ${({ theme }) => theme.colors.white.primary};
+    box-shadow: 0px 4px 4px ${({ theme }) => theme.colors.rgb.tertiary};
     border-radius: 100%;
     margin: 5px;
   }
   div {
     width: 229px;
     height: 159px;
-    background: #89898929;
-    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    background: ${({ theme }) => theme.colors.gray.setiary};
+    box-shadow: 0px 4px 4px ${({ theme }) => theme.colors.rgb.tertiary};
     border-radius: 8px;
   }
 
@@ -89,7 +89,7 @@ export const History = styled.li`
     align-items: center;
     text-align: center;
 
-    color: #fff500;
+    color: ${({ theme }) => theme.colors.yellow.tertiary};
   }
 
   div > span {
@@ -102,7 +102,7 @@ export const History = styled.li`
     display: flex;
     align-items: center;
 
-    color: #ffffff;
+    color: ${({ theme }) => theme.colors.white.primary};;
 
     padding: 7px;
   }
@@ -110,10 +110,10 @@ export const History = styled.li`
   button {
     width: 211px;
     height: 35px;
-    background: #f2ef33;
+    background: ${({ theme }) => theme.colors.yellow.secondary};;
     border-radius: 15px;
     font-weight: 700;
     font-size: 15px;
-    color: #717171;
+    color: ${({ theme }) => theme.colors.gray.sextiary};
   }
 `;

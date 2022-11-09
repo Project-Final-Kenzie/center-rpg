@@ -17,4 +17,7 @@ export const formSchema = yup.object().shape({
     .string()
     .oneOf([yup.ref("password")], "Senha incorreta")
     .required("Confirme sua senha"),
+  level: yup
+  .string()
+  .required("Campo obrigatório"),
 });
