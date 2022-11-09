@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const StyledHeader = styled.header`
-  background: #f2ef33;
-  box-shadow: 8px 8px 4px rgb(0 0 0 / 25%);
+  background: ${({ theme }) => theme.colors.yellow.secondary};
+  box-shadow: 8px 8px 4px ${({ theme }) => theme.colors.rgb.tertiary};
 
   div {
     height: 69px;
