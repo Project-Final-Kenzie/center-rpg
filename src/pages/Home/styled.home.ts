@@ -88,8 +88,8 @@ export const History = styled.li`
 	gap: 1rem;
 
 	img {
-		max-width: 150px;
-		max-height: 150px;
+		width: 150px;
+		height: 150px;
 		background: ${({ theme }) => theme.colors.white.primary};
 		box-shadow: 0px 4px 4px ${({ theme }) => theme.colors.rgb.tertiary};
 		border-radius: 100%;

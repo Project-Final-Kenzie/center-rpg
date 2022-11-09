@@ -12,9 +12,7 @@ button{
     border: none;
     background: transparent;
 }
-img{
-    max-width: 100%;
-}
+
 input{
     background: transparent;
     border:none;
