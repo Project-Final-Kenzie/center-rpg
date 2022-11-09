@@ -72,8 +72,7 @@ export const Form = styled.form`
     label {
 		font-size: 0.9rem;
 		color: ${({ theme }) => theme.colors.white.primary};
-		font-weight: 200;
-        
+		font-weight: 200;        
 	}
 
     div {
@@ -81,7 +80,7 @@ export const Form = styled.form`
 		width: 100%;
 		height: 15px;
 		span {
-			font-size: 0.8rem;
+			font-size: 0.6rem;
 		}
 	}
 
@@ -92,6 +91,7 @@ export const Form = styled.form`
 		border-radius: 0.5rem;
 		background-color: ${({ theme }) => theme.colors.white.tertiary};
 	}
+
 
     button{
         font-size:18px;
