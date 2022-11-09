@@ -1,51 +1,48 @@
 import { StyledHeader } from '../../components/Header/styled.header';
-import { History, LinkStyled, StyledContainer } from './styled.home';
-import { historiesData } from '../../constants/histories';
+import * as S from './styled.home';
 
-//import { UserHistoriesContext } from "../../contexts/HistoriesContext";
-//import { IhistoriesData } from "../../interface/typeHistories";
-
+import { UserHistoriesContext } from '../../contexts/HistoriesContext';
+import { IhistoriesData } from '../../interface/typeHistories';
 import logo from '../../assets/img/d20.svg';
 import { Carousel } from '../../components/carousel';
+import { Navigate } from 'react-router-dom';
 
 const Home = () => {
-	//const { historiesData, loading } = UserHistoriesContext();
-
-	/*if (!loading) {
-    return <p>Carregando...</p>;
-  }
-  Comentado para poder estilizar o retorno abaixo
-  */
+	const { historiesData } = UserHistoriesContext();
+	const token = localStorage.getItem('@TOKEN');
 
 	return (
 		<>
 			<StyledHeader>
 				<div>
 					<img src={logo} alt='logotipo' />
-					<LinkStyled to={'/login'}>Login</LinkStyled>
+					<S.LinkStyled to={'/login'}>Login</S.LinkStyled>
 				</div>
 			</StyledHeader>
+			{token ? (
+				<Navigate to='/dashboard' />
+			) : (
+				<S.StyledContainer>
+					<Carousel />
 
-			<StyledContainer>
-				<Carousel />
+					<ul>
+						{historiesData?.map((h: IhistoriesData) => {
+							return (
+								<S.History key={`${h.id}`}>
+									<img src={h.photo} alt={h.title} />
 
-				<ul>
-					{historiesData?.map((h /*: IhistoriesData*/) => {
-						return (
-							<History key={`${h.id}`}>
-								<img src={h.photo} alt={h.title} />
+									<p>{h.title}</p>
 
-								<p>{h.title}</p>
-
-								<div>
-									<span>{h.description}</span>
-								</div>
-								<button>Ver Mais</button>
-							</History>
-						);
-					})}
-				</ul>
-			</StyledContainer>
+									<div>
+										<span>{h.description}</span>
+									</div>
+									<S.LinkStyledRedirect to='/login'>Ver Mais</S.LinkStyledRedirect>
+								</S.History>
+							);
+						})}
+					</ul>
+				</S.StyledContainer>
+			)}
 		</>
 	);
 };

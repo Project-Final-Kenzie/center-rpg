@@ -37,8 +37,8 @@ export const StyledContainer = styled.main`
 export const LinkStyled = styled(Link)`
 	width: 98px;
 	height: 37px;
-	background: #ffffff;
-	box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+	background: ${({ theme }) => theme.colors.white.primary};
+	box-shadow: 0px 4px 4px ${({ theme }) => theme.colors.rgb.tertiary};
 	border-radius: 8px;
 	display: flex;
 	align-items: center;
@@ -53,13 +53,29 @@ export const LinkStyled = styled(Link)`
 	align-items: center;
 	text-align: center;
 
-	color: #454545;
+	color: ${({ theme }) => theme.colors.gray.quartiary};
 	text-decoration: none;
 `;
 
+export const LinkStyledRedirect = styled(Link)`
+	width: 211px;
+	height: 35px;
+	background: #f2ef33;
+	border-radius: 15px;
+	font-weight: 700;
+	font-size: 15px;
+
+	color: #717171;
+	text-decoration: none;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+`;
+
 export const History = styled.li`
-	background: ${({ theme }) => theme.colors.gray.primary};
-	box-shadow: 0px 10px 64px rgba(0, 0, 0, 0.3);
+	background: ${({ theme }) => theme.colors.rgb.primary};
+	box-shadow: 0px 10px 64px ${({ theme }) => theme.colors.rgb.primary};
 	border-radius: 30px;
 	width: 23%;
 	padding: 1rem;
@@ -74,15 +90,19 @@ export const History = styled.li`
 	img {
 		max-width: 150px;
 		max-height: 150px;
-		background: #ffffff;
-		box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+		background: ${({ theme }) => theme.colors.white.primary};
+		box-shadow: 0px 4px 4px ${({ theme }) => theme.colors.rgb.tertiary};
 		border-radius: 100%;
 	}
 	div {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
 		width: 229px;
 		height: 159px;
-		background: #89898929;
-		box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+		background: ${({ theme }) => theme.colors.gray.setiary};
+		box-shadow: 0px 4px 4px ${({ theme }) => theme.colors.rgb.tertiary};
 		border-radius: 8px;
 	}
 
@@ -95,14 +115,9 @@ export const History = styled.li`
 
 		text-align: center;
 
-		color: #fff500;
+		color: ${({ theme }) => theme.colors.yellow.tertiary};
 	}
-	div {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		overflow: hidden;
-	}
+
 	div > span {
 		font-family: 'Inter';
 		font-style: normal;
@@ -110,18 +125,19 @@ export const History = styled.li`
 		font-size: 12px;
 		line-height: 20px;
 		text-align: center;
-		color: #ffffff;
+		color: ${({ theme }) => theme.colors.white.primary};
+
 		padding: 0.5rem;
 	}
 
 	button {
 		width: 80%;
 		height: 35px;
-		background: #f2ef33;
 		border-radius: 15px;
 		font-weight: 700;
 		font-size: 15px;
-		color: #717171;
+		background: ${({ theme }) => theme.colors.yellow.secondary};
+		color: ${({ theme }) => theme.colors.gray.sextiary};
 	}
 
 	@media screen and (max-width: 1180px) {

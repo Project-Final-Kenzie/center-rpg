@@ -1,45 +1,46 @@
-import { IauthProviderProps } from "../interface/typeUsers";
-import { createContext, useState, useEffect } from "react";
 import {
+  IauthProviderProps,
+  iResponseLogin,
+  iUser,
+  IuserContextProps,
   IdataRegister,
   IdataLogin,
   IRegisterResponse,
-  //IrequestError,
 } from "../interface/typeUsers";
+import { createContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Api } from "../services/api";
-//import { AxiosError } from "axios";
-
-interface IuserContextProps {
-  /*Register*/
-  onSubmitRegister: (dataRegister: IdataRegister) => Promise<void>;
-
-  /*Login*/
-  onSubmitLogin: (dataLogin: IdataLogin) => Promise<void>;
-  userState: boolean;
-  setUserState: React.Dispatch<React.SetStateAction<boolean>>;
-
-  /* Globals */
-  loading: boolean;
-  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
-  userData: {};
-  setUserData: React.Dispatch<React.SetStateAction<{}>>;
-}
 
 export const UserContext = createContext({} as IuserContextProps);
 
 export default function UserProvider({ children }: IauthProviderProps) {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [userState, setUserState] = useState(false);
   const [userData, setUserData] = useState({});
+  const [user, setUser] = useState<iUser | null>(null);
   const navigate = useNavigate();
 
   /*Redirect and mount*/
 
   useEffect(() => {
-    localStorage.getItem("@TOKEN") && setUserState(true);
+    async function loadUser() {
+      const token = localStorage.getItem("@TOKEN");
+      const id = localStorage.getItem("@USERID");
+
+      if (token) {
+        try {
+          Api.defaults.headers.authorization = `Bearer ${token}`;
+          const { data } = await Api.get(`/users/${id}`);
+          setUser(data);
+        } catch (error) {
+          console.error(error);
+        }
+      }
+      setLoading(false);
+    }
+    loadUser();
   }, []);
 
   /* Register */
@@ -77,30 +78,25 @@ export default function UserProvider({ children }: IauthProviderProps) {
   };
 
   /* Login */
-
   const onSubmitLogin = async (dataLogin: IdataLogin) => {
-    setLoading(true);
     try {
-      const { data } = await Api.post<IRegisterResponse>("/login", dataLogin);
-      const notifySucess = (message: string) => toast.success(message);
-      setUserData(data.user);
-      if (data.user) {
-        setLoading(false);
-        localStorage.setItem("@TOKEN", data.accessToken);
-        localStorage.setItem("@USERID", data.user.id);
+      const { data } = await Api.post<iResponseLogin>("/login", dataLogin);
 
-        const userData = JSON.stringify(data.user);
-        localStorage.setItem("@USERINFO", userData);
+      Api.defaults.headers.authorization = `Bearer ${data.accessToken}`;
 
-        notifySucess("Login bem sucedido!");
-        setUserState(true);
-        navigate("/home");
+      window.localStorage.setItem("@TOKEN", data.accessToken);
+      window.localStorage.setItem("@USERID", data.user.id);
+
+      if (data.accessToken) {
+        toast.success("Login realizado com sucesso");
       }
-    } catch (error) {
-      const notifyError = (message: string) => toast.error(message);
+      setUser(data.user);
 
-      setLoading(false);
-      notifyError("Senha ou e-mail inválidos!");
+      navigate("/dashboard", { replace: true });
+    } catch (error) {
+      console.log(error);
+
+      toast.error("Email e/ou Senha invalidos");
     }
   };
 
@@ -115,6 +111,8 @@ export default function UserProvider({ children }: IauthProviderProps) {
         setUserState,
         userData,
         setUserData,
+        setUser,
+        user,
       }}
     >
       {children}

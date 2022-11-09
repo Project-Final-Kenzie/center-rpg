@@ -1,17 +1,42 @@
 import styled from 'styled-components'
 
+export const DivMain = styled.div`
+position: absolute;
+width: 100vw;
+height: 120vh;
+background-color: ${({ theme }) => theme.colors.gray.primary};
 
-export const DivMain = styled.main`
+`
+
+
+export const DivContainer = styled.div`
 
     background-color: ${({ theme }) => theme.colors.gray.secondary};
     width: 900px;
-    height:600px;
+    height:700px;
     border-radius: 10px;
 
     position: absolute;
     top:50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
+    @media (max-width: 1024px) {
+        left: 46.5%;
+	}
+
+    @media (max-width: 768px) {
+		width: 740px;
+        height: 550px;
+        left: 48%;
+	}
+
+    @media (max-width: 425px) {
+
+        width:  420px;
+        height: 900px;
+        
+	}
 
 `
 
@@ -48,7 +73,7 @@ export const Title = styled.div`
 
 `
 
-export const DivContainer = styled.div`
+export const DivContainerForm = styled.div`
 
     display: flex;
     align-items: center;
@@ -56,6 +81,10 @@ export const DivContainer = styled.div`
     margin: 50px auto;
     width: 800px;
     height: 500px;
+
+    @media (max-width: 425px) {
+        flex-direction: column;
+	}
     
 
 `
@@ -130,6 +159,13 @@ export const SideTwo = styled.div`
         padding: 15px;
         
     }
+
+    @media (max-width: 768px) {
+        textarea{
+            min-width: 340px;
+            max-width: 340px;
+        }
+	}
 
 `
 
