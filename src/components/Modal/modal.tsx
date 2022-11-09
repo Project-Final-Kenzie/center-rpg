@@ -70,6 +70,22 @@ return (
                             </div>
                         </label>
 
+                        <label htmlFor="photo">
+                            Imagem:
+                            <StyledInput
+                                font="primary"
+                                type="text"
+                                id="photo"
+                                placeholder="Url da imagem"
+                                {...register("photo")}
+                                />
+                            <div>
+                            <span>{errors.photo?.message}</span>
+                            </div>
+                        </label>
+
+
+
                         <label htmlFor="discord">
                             Discord da Campanha:
                             <StyledInput

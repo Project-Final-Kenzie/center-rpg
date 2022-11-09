@@ -13,7 +13,7 @@ export const DivContainer = styled.div`
 
     background-color: ${({ theme }) => theme.colors.gray.secondary};
     width: 900px;
-    height:600px;
+    height:700px;
     border-radius: 10px;
 
     position: absolute;
