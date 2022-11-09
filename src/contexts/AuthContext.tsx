@@ -16,7 +16,7 @@ import { Api } from "../services/api";
 export const UserContext = createContext({} as IuserContextProps);
 
 export default function UserProvider({ children }: IauthProviderProps) {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [userState, setUserState] = useState(false);
   const [userData, setUserData] = useState({});
   const [user, setUser] = useState<iUser | null>(null);

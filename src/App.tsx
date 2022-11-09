@@ -8,7 +8,7 @@ function App() {
     <>
       <AuthProvider>
         <HistoriesProvider>
-          <ToastContainer position="top-center" autoClose={1500} />
+          <ToastContainer position="top-center" autoClose={1500} theme="dark"/>
           <Routes />
         </HistoriesProvider>
       </AuthProvider>

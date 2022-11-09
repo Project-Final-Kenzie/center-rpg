@@ -24,35 +24,34 @@ const HistoriesProvider = ({children} : IauthProviderProps) => {
     const [loading, setLoading] = useState<boolean>(false)
     const [ModalAddOpen, setModalAddOpen] = useState<boolean>(false)
 
-    useEffect(() =>{
-        const getHistoriesData = async () =>{
-            try {
-                const { data } = await Api.get('/histories')
-                setHistoriesData(data)
-                setLoading(true)
-            } catch (error) {
-    
-            console.error(error)
-    
-            }
+       
+    const getHistoriesData = async () =>{
+        try {
+            const { data } = await Api.get('/histories')
+            setHistoriesData(data)
+            setLoading(true)
+        } catch (error) {
+
+        console.error(error)
+
         }
+    }
+
+    useEffect(() =>{
         getHistoriesData()
     }, [])
-   
-    
+
     async function postNewHistories (dados : IHistoriesContext){
         const userId = localStorage.getItem("@USERID")
         dados = {...dados, owner: userId}
       try {
             await Api.post('/histories', dados)
+            getHistoriesData()
             toast.success('Sua historia foi adicionada com sucesso')
-
+            setModalAddOpen(false)
         } catch (error) {
 
-            toast.error('Ops! Algo deu errado', {
-                position: "top-right",
-                autoClose: 1000,
-                theme: "dark",})
+            toast.error('Ops! Algo deu errado')
             
             console.error(error)
         }
