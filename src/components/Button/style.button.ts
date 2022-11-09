@@ -69,4 +69,9 @@ export const Button3 = styled.span`
   border-radius: 8px;
   margin-bottom: 3vw;
   font-family: Roboto;
+
+  @media (max-width: 420px) {
+    height: 26px;
+    font-size: 12px;
+  }
 `;

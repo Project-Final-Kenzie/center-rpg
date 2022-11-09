@@ -24,6 +24,8 @@ export const CampainMembers = styled.div`
     margin-bottom: 20px;
   }
   @media (max-width: 420px) {
+    margin-left: 0px;
+    width: 184px;
     .members {
       visibility: hidden;
       height: 0px;

@@ -7,7 +7,7 @@ const MesterCard = () => {
       <img src={pessoa} alt="" />
       <div>
         <h3>Dados do Mestre</h3>
-        <div>
+        <div className="textAlign">
           <p>Nome: José</p>
           <p>Email: jose@gmail.com</p>
           <p>Discord: soje12344</p>

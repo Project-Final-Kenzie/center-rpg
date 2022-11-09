@@ -20,6 +20,10 @@ export const CampainDetails = styled.div`
     font-weight: 700;
   }
   @media (max-width: 420px) {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     span {
       font-size: 16px;
     }
