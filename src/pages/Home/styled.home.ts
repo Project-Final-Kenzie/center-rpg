@@ -1,135 +1,195 @@
-import styled from "styled-components";
-import background from "../../assets/img/background_home.svg";
-import { Link } from "react-router-dom";
+import styled from 'styled-components';
+import background from '../../assets/img/backgrondhome.png';
+import { Link } from 'react-router-dom';
 
 export const StyledContainer = styled.main`
-  background-image: url(${background});
-  -webkit-background-size: cover;
-  -o-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  min-height: 86.5vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-image: url(${background});
+	-webkit-background-size: cover;
+	-o-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	min-height: 100vh;
 
-  ul {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-    width: 60%;
-    margin: 0 auto;
-    padding: 5px;
-    flex-wrap: wrap;
-    padding-bottom: 25px;
-  }
+	ul {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		gap: 2rem;
+		padding-bottom: 25px;
+		max-width: 1400px;
+		height: 100%;
+	}
+
+	@media screen and (max-width: 1220px) {
+		ul {
+			gap: 1.5rem;
+		}
+	}
+
+	@media screen and (max-width: 925px) {
+		align-items: center;
+
+		ul {
+			gap: 1rem;
+		}
+	}
+
+	@media screen and (max-width: 720px) {
+		align-items: center;
+
+		ul {
+			gap: 1rem;
+		}
+	}
+
+	@media screen and (max-width: 500px) {
+		align-items: center;
+
+		ul {
+			margin: 0 auto;
+			display: flex;
+			overflow-x: scroll;
+			flex-wrap: nowrap;
+		}
+	}
 `;
 
 export const LinkStyled = styled(Link)`
-  width: 98px;
-  height: 37px;
-  background: ${({ theme }) => theme.colors.white.primary};
-  box-shadow: 0px 4px 4px ${({ theme }) => theme.colors.rgb.tertiary};
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	width: 98px;
+	height: 37px;
+	background: ${({ theme }) => theme.colors.white.primary};
+	box-shadow: 0px 4px 4px ${({ theme }) => theme.colors.rgb.tertiary};
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 16px;
-  display: flex;
-  align-items: center;
-  text-align: center;
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 16px;
+	display: flex;
+	align-items: center;
+	text-align: center;
 
-  color: ${({ theme }) => theme.colors.gray.quartiary};
-  text-decoration: none;
+	color: ${({ theme }) => theme.colors.gray.quartiary};
+	text-decoration: none;
 `;
 
 export const LinkStyledRedirect = styled(Link)`
-  width: 211px;
-  height: 35px;
-  background: #f2ef33;
-  border-radius: 15px;
-  font-weight: 700;
-  font-size: 15px;
+	width: 80%;
+	height: 35px;
+	background: ${({ theme }) => theme.colors.yellow.secondary};
+	border-radius: 15px;
+	font-weight: 700;
+	font-size: 15px;
 
-  color: #717171;
-  text-decoration: none;
+	color: #717171;
+	text-decoration: none;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 `;
 
 export const History = styled.li`
-  background: ${({ theme }) => theme.colors.rgb.primary};
+	background: ${({ theme }) => theme.colors.rgb.primary};
+	box-shadow: 0px 10px 64px ${({ theme }) => theme.colors.rgb.primary};
+	border-radius: 30px;
+	width: 23%;
+	padding: 1rem;
+	height: 445.24237060546875px;
+	border-radius: 30px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
 
-  box-shadow: 0px 10px 64px ${({ theme }) => theme.colors.rgb.primary};
-  border-radius: 30px;
+	img {
+		width: 150px;
+		height: 150px;
+		background: ${({ theme }) => theme.colors.white.primary};
+		box-shadow: 0px 4px 4px ${({ theme }) => theme.colors.rgb.tertiary};
+		border-radius: 100%;
+	}
+	div::-webkit-scrollbar {
+		display: none;
+	}
+	div {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow-y: scroll;
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+		width: 100%;
+		height: 150px;
+		background: ${({ theme }) => theme.colors.gray.setiary};
+		box-shadow: 0px 4px 4px ${({ theme }) => theme.colors.rgb.tertiary};
+		border-radius: 8px;
+	}
 
-  height: 445.24237060546875px;
-  width: 249px;
+	p {
+		font-family: 'Inter';
+		font-style: normal;
+		font-weight: 700;
+		font-size: 20px;
+		line-height: 30px;
 
-  border-radius: 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  align-items: center;
-  gap: 1rem;
+		text-align: center;
 
-  img {
-    max-width: 150px;
-    max-height: 150px;
-    background: ${({ theme }) => theme.colors.white.primary};
-    box-shadow: 0px 4px 4px ${({ theme }) => theme.colors.rgb.tertiary};
-    border-radius: 100%;
-    margin: 5px;
-  }
-  div {
-    width: 229px;
-    height: 159px;
-    background: ${({ theme }) => theme.colors.gray.setiary};
-    box-shadow: 0px 4px 4px ${({ theme }) => theme.colors.rgb.tertiary};
-    border-radius: 8px;
-  }
+		color: ${({ theme }) => theme.colors.yellow.tertiary};
+	}
 
-  p {
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 30px;
+	div > span {
+		font-family: 'Inter';
+		font-style: normal;
+		font-weight: 300;
+		font-size: 12px;
+		line-height: 20px;
+		text-align: center;
+		color: ${({ theme }) => theme.colors.white.primary};
 
-    display: flex;
-    align-items: center;
-    text-align: center;
+		padding: 0.5rem;
+	}
 
-    color: ${({ theme }) => theme.colors.yellow.tertiary};
-  }
+	button {
+		width: 80%;
+		height: 35px;
+		border-radius: 15px;
+		font-weight: 700;
+		font-size: 15px;
+		background: ${({ theme }) => theme.colors.yellow.secondary};
+		color: ${({ theme }) => theme.colors.gray.sextiary};
+	}
 
-  div > span {
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 300;
-    font-size: 12px;
-    line-height: 20px;
+	@media screen and (max-width: 1220px) {
+		width: 23%;
+		div {
+			overflow: scroll;
+		}
+		img {
+			width: 80px;
+			height: 80px;
+		}
+	}
+	@media screen and (max-width: 925px) {
+		width: 31%;
+	}
+	@media screen and (max-width: 720px) {
+		width: 40%;
+		div {
+			overflow-y: hidden;
+		}
+	}
 
-    display: flex;
-    align-items: center;
-
-    color: ${({ theme }) => theme.colors.white.primary};;
-
-    padding: 7px;
-  }
-
-  button {
-    width: 211px;
-    height: 35px;
-    background: ${({ theme }) => theme.colors.yellow.secondary};;
-    border-radius: 15px;
-    font-weight: 700;
-    font-size: 15px;
-    color: ${({ theme }) => theme.colors.gray.sextiary};
-  }
+	@media screen and (max-width: 500px) {
+		min-width: 20%;
+	}
 `;
