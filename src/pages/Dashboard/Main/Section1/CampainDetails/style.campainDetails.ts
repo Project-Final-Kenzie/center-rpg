@@ -4,9 +4,11 @@ export const CampainDetails = styled.div`
   font-family: Roboto;
   color: white;
   span {
-    line-height: 20px;
     font-size: 1.7vw;
     font-weight: 700;
+  }
+  div {
+    height: 1.9vw;
   }
   .property {
     color: ${({ theme }) => theme.colors.yellow.secondary};
@@ -32,6 +34,9 @@ export const CampainDetails = styled.div`
     }
     a:link {
       font-size: 14px;
+    }
+    div {
+      height: 20px;
     }
   }
 `;

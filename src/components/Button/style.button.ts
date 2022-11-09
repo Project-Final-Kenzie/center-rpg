@@ -41,16 +41,23 @@ export const Button2 = styled.span`
   align-items: center;
   justify-content: center;
   background: white;
-  width: 100px;
-  height: 38px;
+  width: 9vw;
+  min-width: 60px;
+  min-height: 30px;
+  height: 3.8vw;
   border-radius: 8px;
   font-family: Roboto;
   font-weight: 700;
-  font-size: 14px;
+  font-size: max(14px, 1.8vw);
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   transition: all 1s;
   :hover {
     opacity: 0.8;
+  }
+  @media (max-width: 420px) {
+    width: 70px;
+    height: 25px;
+    font-size: 12px;
   }
 `;
 
@@ -69,6 +76,14 @@ export const Button3 = styled.span`
   border-radius: 8px;
   margin-bottom: 3vw;
   font-family: Roboto;
+  transition: all 0.8s;
+  :hover {
+    background-color: ${({ theme }) => theme.colors.yellow.quartiary};
+  }
+
+  @media (max-width: 1200px) {
+    border-radius: 5px;
+  }
 
   @media (max-width: 420px) {
     height: 26px;

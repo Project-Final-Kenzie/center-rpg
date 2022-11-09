@@ -8,12 +8,13 @@ export const Section2 = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 
   h2 {
     color: white;
-    height: 30px;
+
     font-size: 2.3vw;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     font-weight: 700;
   }
   div {
@@ -31,6 +32,7 @@ export const Section2 = styled.section`
   p {
     padding: 0px 30px 0px 30px;
     color: ${({ theme }) => theme.colors.gray.quartiary};
+    font-size: 1.3vw;
   }
   @media (max-width: 420px) {
     width: 340px;
@@ -40,6 +42,11 @@ export const Section2 = styled.section`
     }
     p {
       font-size: 14px;
+    }
+  }
+  @media (max-width: 1200px) {
+    div {
+      border-radius: 60px 6px 60px 6px;
     }
   }
 `;

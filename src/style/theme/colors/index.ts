@@ -9,6 +9,7 @@ const colors = {
     primary: "#f2ef33ba",
     secondary: "#f2ef33",
     tertiary: "#FFCF40",
+    quartiary: "#FF9010",
   },
 
   white: {

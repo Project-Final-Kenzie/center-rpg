@@ -30,6 +30,7 @@ export const Main = styled.main`
   }
 `;
 export const CampainTitle = styled.div`
+  text-align: center;
   .campain {
     color: white;
     font-family: Roboto;
