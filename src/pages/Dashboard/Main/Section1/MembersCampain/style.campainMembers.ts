@@ -21,7 +21,7 @@ export const CampainMembers = styled.div`
     overflow-y: auto;
   }
   .player {
-    margin-bottom: 20px;
+    margin-bottom: 1vw;
     font-size: 1.2vw;
   }
   @media (max-width: 1200px) {
