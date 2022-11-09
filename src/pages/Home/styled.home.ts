@@ -29,7 +29,7 @@ export const StyledContainer = styled.main`
 
 		ul {
 			overflow-x: scroll;
-			fex-wrap: nowrap;
+			flex-wrap: nowrap;
 		}
 	}
 `;
