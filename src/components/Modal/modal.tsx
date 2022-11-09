@@ -46,9 +46,10 @@ return (
                     <label htmlFor="duration">
                         Duração:
                         <select {...register("duration")}>
-                            <option value="curto">Curto</option>
-                            <option value="medio">Médio</option>
-                            <option value="longo">Longo</option>
+                            <option value=""></option>
+                            <option value="curto">Curta</option>
+                            <option value="medio">Média</option>
+                            <option value="longo">Longa</option>
                         </select>
                         <div>
                             <span>{errors.duration?.message}</span>
