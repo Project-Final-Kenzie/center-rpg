@@ -19,17 +19,41 @@ export const StyledContainer = styled.main`
 		align-items: center;
 		justify-content: center;
 		gap: 2rem;
-		max-width: 1400px;
-		width: 100%;
 		padding-bottom: 25px;
+		max-width: 1400px;
+		height: 100%;
+	}
+
+	@media screen and (max-width: 1220px) {
+		ul {
+			gap: 1.5rem;
+		}
+	}
+
+	@media screen and (max-width: 925px) {
+		align-items: center;
+
+		ul {
+			gap: 1rem;
+		}
+	}
+
+	@media screen and (max-width: 720px) {
+		align-items: center;
+
+		ul {
+			gap: 1rem;
+		}
 	}
 
 	@media screen and (max-width: 500px) {
 		align-items: center;
 
 		ul {
+			margin: 0 auto;
+			display: flex;
 			overflow-x: scroll;
-			fex-wrap: nowrap;
+			flex-wrap: nowrap;
 		}
 	}
 `;
@@ -58,9 +82,9 @@ export const LinkStyled = styled(Link)`
 `;
 
 export const LinkStyledRedirect = styled(Link)`
-	width: 211px;
+	width: 80%;
 	height: 35px;
-	background: #f2ef33;
+	background: ${({ theme }) => theme.colors.yellow.secondary};
 	border-radius: 15px;
 	font-weight: 700;
 	font-size: 15px;
@@ -79,7 +103,7 @@ export const History = styled.li`
 	border-radius: 30px;
 	width: 23%;
 	padding: 1rem;
-	/* height: 445.24237060546875px; */
+	height: 445.24237060546875px;
 	border-radius: 30px;
 	display: flex;
 	flex-direction: column;
@@ -94,13 +118,18 @@ export const History = styled.li`
 		box-shadow: 0px 4px 4px ${({ theme }) => theme.colors.rgb.tertiary};
 		border-radius: 100%;
 	}
+	div::-webkit-scrollbar {
+		display: none;
+	}
 	div {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		overflow: hidden;
-		width: 229px;
-		height: 159px;
+		overflow-y: scroll;
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+		width: 100%;
+		height: 150px;
 		background: ${({ theme }) => theme.colors.gray.setiary};
 		box-shadow: 0px 4px 4px ${({ theme }) => theme.colors.rgb.tertiary};
 		border-radius: 8px;
@@ -140,23 +169,20 @@ export const History = styled.li`
 		color: ${({ theme }) => theme.colors.gray.sextiary};
 	}
 
-	@media screen and (max-width: 1180px) {
-		width: 25%;
+	@media screen and (max-width: 1220px) {
+		width: 23%;
 		div {
-			overflow: hidden;
+			overflow: scroll;
 		}
 		img {
 			width: 80px;
 			height: 80px;
 		}
 	}
-	@media screen and (max-width: 900px) {
-		width: 25%;
-		div {
-			overflow-y: hidden;
-		}
+	@media screen and (max-width: 925px) {
+		width: 31%;
 	}
-	@media screen and (max-width: 700px) {
+	@media screen and (max-width: 720px) {
 		width: 40%;
 		div {
 			overflow-y: hidden;
@@ -164,6 +190,6 @@ export const History = styled.li`
 	}
 
 	@media screen and (max-width: 500px) {
-		width: 90%;
+		min-width: 20%;
 	}
 `;
