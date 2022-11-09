@@ -1,17 +1,21 @@
 import { StyledHeader } from "../../components/Header/styled.header";
 import { UserHistoriesContext } from "../../contexts/HistoriesContext";
 import logo from "../../assets/img/logo.svg";
-import {
-  CreateCamp,
-  History,
-  Logout,
-  StyledContainer,
-} from "./style.dashboard";
+import * as S from "./style.dashboard";
 import { Modal } from "../../components/Modal/modal";
-
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Dashboard = () => {
-  const { setModalAddOpen,  ModalAddOpen } = UserHistoriesContext()
+  const { setModalAddOpen, ModalAddOpen } = UserHistoriesContext();
+  const navigate = useNavigate();
+
+  const logout = () => {
+    window.localStorage.clear();
+    navigate("/home");
+    toast.success("Seção encerrada");
+  };
+
   let historiesData = [
     {
       id: 1,
@@ -113,21 +117,25 @@ const Dashboard = () => {
 
   return (
     <>
-      <StyledContainer>
-        {ModalAddOpen && (
-          <Modal />
-        )}
+      <S.StyledContainer>
+        {ModalAddOpen && <Modal />}
         <StyledHeader>
           <div>
             <img src={logo} alt="logotipo" />
-            <Logout>logout</Logout>
+            <S.Logout onClick={logout}>Logout</S.Logout>
           </div>
         </StyledHeader>
-        <CreateCamp onClick={()=>{setModalAddOpen(true)}}>Criar Campanha</CreateCamp>
+        <S.CreateCamp
+          onClick={() => {
+            setModalAddOpen(true);
+          }}
+        >
+          Criar Campanha
+        </S.CreateCamp>
         <ul>
           {historiesData?.map((h /*: IhistoriesData*/) => {
             return (
-              <History key={`${h.id}`}>
+              <S.History key={`${h.id}`}>
                 <img src={h.photo} alt={h.title} />
 
                 <p>{h.title}</p>
@@ -136,11 +144,11 @@ const Dashboard = () => {
                   <span>{h.description}</span>
                 </div>
                 <button>Ver Mais</button>
-              </History>
+              </S.History>
             );
           })}
         </ul>
-      </StyledContainer>
+      </S.StyledContainer>
     </>
   );
 };
