@@ -15,13 +15,9 @@ interface IHistoriesContext{
     getHistoriesData?: () => Promise<void>
     dados?: any
     owner?: string | null
-
 }
 
-const HistoriesContext = createContext<IHistoriesContext>(
-  {} as IHistoriesContext
-);
-
+const HistoriesContext = createContext<IHistoriesContext>({} as IHistoriesContext)
 
 const HistoriesProvider = ({children} : IauthProviderProps) => {
     const [historiesData, setHistoriesData] = useState<IhistoriesData[]>()
@@ -70,15 +66,8 @@ const HistoriesProvider = ({children} : IauthProviderProps) => {
     )
 }
 
-  return (
-    <HistoriesContext.Provider value={{ historiesData, loading }}>
-      {children}
-    </HistoriesContext.Provider>
-  );
-};
-
-export const UserHistoriesContext = () => {
-  const context = useContext(HistoriesContext);
-  return context;
-};
-export default HistoriesProvider;
+export const UserHistoriesContext = () =>{
+    const context = useContext(HistoriesContext)
+    return context
+}
+export default HistoriesProvider
