@@ -1,6 +1,4 @@
 import { StyledHeader } from "../../components/Header/styled.header";
-import logo from "../../assets/img/logo.svg";
-import { useNavigate } from "react-router-dom";
 import { UserHistoriesContext } from "../../contexts/HistoriesContext";
 import logo from "../../assets/img/logo.svg";
 import {
@@ -13,16 +11,7 @@ import { Modal } from "../../components/Modal/modal";
 
 
 const Dashboard = () => {
-  const navigate = useNavigate();
-
-  const logOut = () => {
-    window.localStorage.clear();
-    navigate("/home");
-  };
-
-const Dashboard = () => {
   const { setModalAddOpen,  ModalAddOpen } = UserHistoriesContext()
-
   let historiesData = [
     {
       id: 1,
@@ -124,18 +113,21 @@ const Dashboard = () => {
 
   return (
     <>
-
+      <StyledContainer>
+        {ModalAddOpen && (
+          <Modal />
+        )}
         <StyledHeader>
           <div>
             <img src={logo} alt="logotipo" />
-            <S.Logout onClick={logOut}>Logout</S.Logout>
+            <Logout>logout</Logout>
           </div>
         </StyledHeader>
-
+        <CreateCamp onClick={()=>{setModalAddOpen(true)}}>Criar Campanha</CreateCamp>
         <ul>
           {historiesData?.map((h /*: IhistoriesData*/) => {
             return (
-              <S.History key={`${h.id}`}>
+              <History key={`${h.id}`}>
                 <img src={h.photo} alt={h.title} />
 
                 <p>{h.title}</p>
@@ -144,11 +136,11 @@ const Dashboard = () => {
                   <span>{h.description}</span>
                 </div>
                 <button>Ver Mais</button>
-              </S.History>
+              </History>
             );
           })}
         </ul>
-      </S.StyledContainer>
+      </StyledContainer>
     </>
   );
 };

@@ -1,53 +1,54 @@
-import {
-  IauthProviderProps,
-  iResponseLogin,
-  iUser,
-  IuserContextProps,
-} from "../interface/typeUsers";
+import { IauthProviderProps } from "../interface/typeUsers";
 import { createContext, useState, useEffect } from "react";
 import {
   IdataRegister,
   IdataLogin,
   IRegisterResponse,
+  //IrequestError,
 } from "../interface/typeUsers";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { api } from "../services/api";
+import { Api } from "../services/api";
+//import { AxiosError } from "axios";
+
+interface IuserContextProps {
+  /*Register*/
+  onSubmitRegister: (dataRegister: IdataRegister) => Promise<void>;
+
+  /*Login*/
+  onSubmitLogin: (dataLogin: IdataLogin) => Promise<void>;
+  userState: boolean;
+  setUserState: React.Dispatch<React.SetStateAction<boolean>>;
+
+  /* Globals */
+  loading: boolean;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  userData: {};
+  setUserData: React.Dispatch<React.SetStateAction<{}>>;
+}
 
 export const UserContext = createContext({} as IuserContextProps);
 
 export default function UserProvider({ children }: IauthProviderProps) {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [userState, setUserState] = useState(false);
   const [userData, setUserData] = useState({});
-  const [user, setUser] = useState<iUser | null>(null);
-
   const navigate = useNavigate();
 
-  useEffect(() => {
-    async function loadUser() {
-      const token = localStorage.getItem("@TOKEN");
-      const id = localStorage.getItem("@USERID");
+  /*Redirect and mount*/
 
-      if (token) {
-        try {
-          api.defaults.headers.authorization = `Bearer ${token}`;
-          const { data } = await api.get(`/users/${id}`);
-          setUser(data);
-        } catch (error) {
-          console.error(error);
-        }
-      }
-      setLoading(false);
-    }
-    loadUser();
+  useEffect(() => {
+    localStorage.getItem("@TOKEN") && setUserState(true);
   }, []);
 
+  /* Register */
+
   const onSubmitRegister = async (dataRegister: IdataRegister) => {
+    setLoading(true);
     delete dataRegister.confirmPassword;
     try {
-      const { data } = await api.post<IRegisterResponse>(
+      const { data } = await Api.post<IRegisterResponse>(
         "/users",
         dataRegister
       );
@@ -75,25 +76,31 @@ export default function UserProvider({ children }: IauthProviderProps) {
     }
   };
 
+  /* Login */
+
   const onSubmitLogin = async (dataLogin: IdataLogin) => {
+    setLoading(true);
     try {
-      const { data } = await api.post<iResponseLogin>("/login", dataLogin);
+      const { data } = await Api.post<IRegisterResponse>("/login", dataLogin);
+      const notifySucess = (message: string) => toast.success(message);
+      setUserData(data.user);
+      if (data.user) {
+        setLoading(false);
+        localStorage.setItem("@TOKEN", data.accessToken);
+        localStorage.setItem("@USERID", data.user.id);
 
-      api.defaults.headers.authorization = `Bearer ${data.accessToken}`;
+        const userData = JSON.stringify(data.user);
+        localStorage.setItem("@USERINFO", userData);
 
-      window.localStorage.setItem("@TOKEN", data.accessToken);
-      window.localStorage.setItem("@USERID", data.user.id);
-
-      if (data.accessToken) {
-        toast.success("Login realizado com sucesso");
+        notifySucess("Login bem sucedido!");
+        setUserState(true);
+        navigate("/home");
       }
-      setUser(data.user);
-
-      navigate("/dashboard", { replace: true });
     } catch (error) {
-      console.log(error);
+      const notifyError = (message: string) => toast.error(message);
 
-      toast.error("Email e/ou Senha invalidos");
+      setLoading(false);
+      notifyError("Senha ou e-mail inválidos!");
     }
   };
 
@@ -108,8 +115,6 @@ export default function UserProvider({ children }: IauthProviderProps) {
         setUserState,
         userData,
         setUserData,
-        setUser,
-        user,
       }}
     >
       {children}
