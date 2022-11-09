@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const CampainMembers = styled.div`
-  margin-top: 30px;
+  margin-left: 5vw;
+  margin-top: 1.3vw;
   h2 {
     font-family: Roboto;
     font-size: 2vw;
@@ -11,12 +12,13 @@ export const CampainMembers = styled.div`
   }
   .players {
     border: solid 1px white;
-    height: 240px;
+    height: 13vw;
     border-radius: 80px 8px 80px 8px;
     padding-top: 60px;
     padding-left: 15px;
     font-family: Roboto;
     color: white;
+    overflow-y: auto;
   }
   .player {
     margin-bottom: 20px;

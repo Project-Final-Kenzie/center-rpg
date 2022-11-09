@@ -7,7 +7,8 @@ export const Header = styled.header`
   height: 85px;
   width: 100%;
   justify-content: space-between;
+  padding-right: 60px;
   img {
-    max-height: 70px;
+    max-height: 55px;
   }
 `;

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import * as S from "./style.campainDetails";
 
 const CampainDetails = () => {
@@ -13,7 +14,9 @@ const CampainDetails = () => {
       </div>
       <div>
         <span>Discord da campanha:</span>
-        <span>Clique aqui</span>
+        <a href="https://google.com" target="_blank" rel="noreferrer">
+          Clique aqui
+        </a>
       </div>
     </S.CampainDetails>
   );

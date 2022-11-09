@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const Main = styled.main`
-  height: 100%;
+  margin: 60px 13px 60px 13px;
+  height: 70vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,14 +19,15 @@ export const CampainTitle = styled.div`
   text-align: center;
 
   .campain {
+    color: white;
     font-family: Roboto;
     font-weight: 700;
-    font-size: 36px;
+    font-size: 3.3vw;
   }
   .campainTitle {
     font-family: Roboto;
     font-weight: 700;
-    font-size: 36px;
+    font-size: 3.3vw;
     color: ${({ theme }) => theme.colors.yellow.secondary};
   }
 `;

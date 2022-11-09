@@ -50,6 +50,23 @@ export const Button2 = styled.span`
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   transition: all 1s;
   :hover {
-    opacity: 0.9;
+    opacity: 0.8;
   }
+`;
+
+export const Button3 = styled.span`
+  color: ${({ theme }) => theme.colors.gray.quartiary};
+  cursor: pointer;
+  width: 100%;
+  height: 4vw;
+  font-family: Inter;
+  background-color: ${({ theme }) => theme.colors.yellow.tertiary};
+  font-size: 1.8vw;
+  align-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  margin-bottom: 3vw;
+  font-family: Roboto;
 `;
