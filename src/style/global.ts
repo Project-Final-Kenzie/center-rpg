@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
 *{
@@ -26,8 +26,8 @@ select{
     background: transparent;
     border:none;
 }
-body{
-    background-color: gray;
+html,body{
+  overflow-x: hidden;
 }
 
 textarea:focus, input:focus, select:focus {

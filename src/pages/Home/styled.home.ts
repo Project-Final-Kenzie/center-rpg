@@ -1,11 +1,10 @@
 import styled from 'styled-components';
-import background from '../../assets/img/background_home.svg';
+import background from '../../assets/img/backgrondhome.png';
 import { Link } from 'react-router-dom';
 
 export const StyledContainer = styled.main`
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 	align-items: center;
 	background-image: url(${background});
 	-webkit-background-size: cover;
@@ -16,13 +15,22 @@ export const StyledContainer = styled.main`
 
 	ul {
 		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 2rem;
-		max-width: 100%;
-		width: 1400px;
 		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		gap: 2rem;
+		max-width: 1400px;
+		width: 100%;
 		padding-bottom: 25px;
+	}
+
+	@media screen and (max-width: 500px) {
+		align-items: center;
+
+		ul {
+			overflow-x: scroll;
+			fex-wrap: nowrap;
+		}
 	}
 `;
 
@@ -50,17 +58,17 @@ export const LinkStyled = styled(Link)`
 `;
 
 export const History = styled.li`
-	background: rgba(156, 156, 153, 0.3);
-
+	background: ${({ theme }) => theme.colors.gray.primary};
 	box-shadow: 0px 10px 64px rgba(0, 0, 0, 0.3);
 	border-radius: 30px;
-	width: 300px;
-	height: 445.24237060546875px;
+	width: 23%;
+	padding: 1rem;
+	/* height: 445.24237060546875px; */
 	border-radius: 30px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	align-items: center;
+	justify-content: center;
 	gap: 1rem;
 
 	img {
@@ -93,7 +101,7 @@ export const History = styled.li`
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 100%;
+		overflow: hidden;
 	}
 	div > span {
 		font-family: 'Inter';
@@ -107,7 +115,7 @@ export const History = styled.li`
 	}
 
 	button {
-		width: 211px;
+		width: 80%;
 		height: 35px;
 		background: #f2ef33;
 		border-radius: 15px;
@@ -115,12 +123,31 @@ export const History = styled.li`
 		font-size: 15px;
 		color: #717171;
 	}
-	@media screen and (max-width: 900px) {
-		width: 175px;
 
-		img {
-			max-width: 100px;
-			max-height: 100px;
+	@media screen and (max-width: 1180px) {
+		width: 25%;
+		div {
+			overflow: hidden;
 		}
+		img {
+			width: 80px;
+			height: 80px;
+		}
+	}
+	@media screen and (max-width: 900px) {
+		width: 25%;
+		div {
+			overflow-y: hidden;
+		}
+	}
+	@media screen and (max-width: 700px) {
+		width: 40%;
+		div {
+			overflow-y: hidden;
+		}
+	}
+
+	@media screen and (max-width: 500px) {
+		width: 90%;
 	}
 `;
