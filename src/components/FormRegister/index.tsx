@@ -1,10 +1,8 @@
 import logo from "../../assets/img/logo.svg";
-import d20 from "../../assets/img/d20.svg";
 
 import { Button } from "../Button/style.button";
 import { StyledInput } from "../Input/style.input";
 import * as S from "./style.formRegister";
-import Logo from "../../assets/img/logo.svg";
 
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
@@ -92,15 +90,16 @@ const FormRegister = () => {
             </div>
           </label>
 
-          <label htmlFor="confirmPassword">
+          <label htmlFor="level">
             Selecione seu nível
-            <select {...register("level")}>
+            <select id="level" {...register("level")}>
+              <option value=""></option>
               <option value="iniciante">Iniciante</option>
               <option value="intermediario">Intermediário</option>
               <option value="avancado">Avançado</option>
             </select>
             <div>
-              <span>teste</span>
+              <span>{errors.level?.message}</span>
             </div>
           </label>
 
