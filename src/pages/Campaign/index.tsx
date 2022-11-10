@@ -3,11 +3,13 @@ import * as S from './style.campaign';
 import logo from "../../assets/img/d20.svg";
 import { useParams } from 'react-router-dom';
 import { Api } from '../../services/api';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { UserContext } from '../../contexts/AuthContext';
 
 
 export const Compaings = ()=> {
     const { id } = useParams();
+    const { user } = useContext(UserContext)
     const [ detailHistorie, setDetailHistorie] = useState<any>()
     const [loading , setLoading] = useState<boolean>(true)
 
@@ -22,6 +24,19 @@ export const Compaings = ()=> {
         setLoading(false)
     } 
 
+    async function addMember() {
+        const newMembers={id : user?.id, name : user?.name, level:user?.level}
+        const newArray =[...detailHistorie.members, newMembers]
+        const newData = {members : newArray}
+         try {
+            await Api.patch(`/histories/${id}`, newData)
+            getHistorieDetails(id)
+        } catch (error) {
+            
+        }
+    }
+
+
     useEffect(() => {
         getHistorieDetails(id)
     }, [id])
@@ -29,7 +44,6 @@ export const Compaings = ()=> {
     if(loading){
         return <p>Caregando</p>;
     }
-
     return(
         <S.DivBody>
             <StyledHeader>
@@ -80,7 +94,7 @@ export const Compaings = ()=> {
                             </div>
                         </S.DivData>
                         <S.DivButton>
-                            <button>Ingressar nessa campanha</button>
+                            <button onClick={addMember}>Ingressar nessa campanha</button>
                         </S.DivButton>
                         <S.DivUsers>
                             <div className='DivTitleUser'>
@@ -89,10 +103,7 @@ export const Compaings = ()=> {
 
                             <div className='container'>
                                 <ul>
-                                    {detailHistorie.members.lenght !== 0 ? 
-                                    <p>teste</p>
-                                     : 
-                                    detailHistorie.members.map((member : {id: string, name: string, level: string})=>{
+                                    {detailHistorie.members.map((member : {id: string, name: string, level: string})=>{
                                         return(
                                             <li id={member.id} key={`${member.id}`}>
                                             <div className='sideOne'>
@@ -100,7 +111,14 @@ export const Compaings = ()=> {
                                                 <p>Nivel: {member.level}</p>
                                             </div>
                                             <div className='sideTwo'>
-                                            <button>X</button>
+                                                <>{console.log(member.id, user?.id)}</>
+                                            {member.id === user?.id && 
+                                            <>
+                                             <button>X</button>
+                                            </>
+
+                                                }
+                                            
                                             </div>
                                         </li>
                                         )
