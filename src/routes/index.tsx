@@ -11,7 +11,7 @@ const RoutesMain = () => (
     <Route path="/home" element={<Home />} />
     <Route path="/login" element={<Login />} />
     <Route path="/register" element={<Register />} />
-    <Route path="/campaign" element={<Compaings />} />
+    <Route path="/campaign/:id" element={<Compaings />} />
     <Route element={<ProtectedRoutes />}>
       <Route path="/dashboard" element={<Dashboard />} />
     </Route>

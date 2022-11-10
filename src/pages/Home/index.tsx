@@ -7,14 +7,16 @@ import { IhistoriesData } from "../../interface/typeHistories";
 import logo from "../../assets/img/d20.svg";
 import { Carousel } from "../../components/carousel";
 import { Navigate} from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "../../contexts/AuthContext";
 
 const Home = () => {
   const { historiesData } = UserHistoriesContext();
-  const token = localStorage.getItem("@TOKEN")
+  const { user } = useContext(UserContext);
 
   return (
     <>
-      {token ? (
+      {user ? (
         <Navigate to='/dashboard'/>
       ):(
         <S.StyledContainer>
@@ -30,7 +32,7 @@ const Home = () => {
         <ul>
           {historiesData?.map((h : IhistoriesData) => {
             return (
-              <S.History key={`${h.id}`}>
+              <S.History id={`${h.id}`} key={`${h.id}`}>
                 <img src={h.photo} alt={h.title} />
 
                 <p>{h.title}</p>

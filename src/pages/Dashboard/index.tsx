@@ -3,7 +3,7 @@ import { UserHistoriesContext } from "../../contexts/HistoriesContext";
 import logo from "../../assets/img/logo.svg";
 import * as S from "./style.dashboard";
 import { Modal } from "../../components/Modal/modal";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { IhistoriesData } from "../../interface/typeHistories";
 
@@ -38,7 +38,7 @@ const Dashboard = () => {
         <ul>
           {historiesData?.map((h : IhistoriesData) => {
             return (
-              <S.History key={`${h.id}`}>
+              <S.History id={`${h.id}`} key={`${h.id}`}>
                 <img src={h.photo} alt={h.title} />
 
                 <p>{h.title}</p>
@@ -46,7 +46,7 @@ const Dashboard = () => {
                 <div>
                   <span>{h.description}</span>
                 </div>
-                <button>Ver Mais</button>
+                <Link to={`/campaign/${h.id}`}>Ver Mais</Link>
               </S.History>
             );
           })}
