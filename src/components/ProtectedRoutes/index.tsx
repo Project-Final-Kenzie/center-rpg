@@ -5,7 +5,7 @@ const ProtectedRoutes = () => {
   const { user, loading } = useContext(UserContext);
   
   if (loading) {
-    return <p>Caregando</p>;
+    return <p>Carregando</p>;
   }
   return user ? <Outlet /> : <Navigate to="/home" />;
 };

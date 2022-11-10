@@ -109,3 +109,9 @@ export interface IuserContextProps {
   setUser: React.Dispatch<React.SetStateAction<iUser | null>>;
   user: iUser | null;
 }
+
+export interface IOwner {
+  id: string | undefined;
+  name: string | undefined;
+  email: string | undefined;
+}

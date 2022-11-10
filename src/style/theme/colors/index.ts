@@ -13,6 +13,7 @@ const colors = {
 		primary: '#f2ef33ba',
 		secondary: '#f2ef33',
 		tertiary: '#fff500',
+		quartiary: '#FFCF40',
 	},
 
 	white: {
@@ -26,6 +27,7 @@ const colors = {
 		primary: 'rgba(156, 156, 153, 0.3)',
 		secondary: 'rgba(0, 0, 0, 0.3)',
 		tertiary: 'rgb(0 0 0 / 25%)',
+		quartiary: 'rgb(21,21,21,0.8)'
 
 	}
 };

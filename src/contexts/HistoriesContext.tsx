@@ -1,9 +1,11 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { IauthProviderProps } from "../interface/typeUsers";
+import { IauthProviderProps, IOwner } from "../interface/typeUsers";
 import { Api } from "../services/api";
 import { IhistoriesData} from "../interface/typeHistories";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { UserContext } from "./AuthContext";
+import { useNavigate } from "react-router-dom";
 
 
 interface IHistoriesContext{
@@ -13,17 +15,20 @@ interface IHistoriesContext{
     setModalAddOpen: React.Dispatch<React.SetStateAction<boolean>>
     postNewHistories: (dados: any) => void
     getHistoriesData?: () => Promise<void>
+    removehistories : (id: string) => void
     dados?: any
-    owner?: string | null
+    members?: any
+    owner?: IOwner
 }
 
 const HistoriesContext = createContext<IHistoriesContext>({} as IHistoriesContext)
 
 const HistoriesProvider = ({children} : IauthProviderProps) => {
     const [historiesData, setHistoriesData] = useState<IhistoriesData[]>()
+    const { user } = useContext(UserContext)
     const [loading, setLoading] = useState<boolean>(false)
     const [ModalAddOpen, setModalAddOpen] = useState<boolean>(false)
-
+    const navigate = useNavigate()
        
     const getHistoriesData = async () =>{
         try {
@@ -42,8 +47,7 @@ const HistoriesProvider = ({children} : IauthProviderProps) => {
     }, [])
 
     async function postNewHistories (dados : IHistoriesContext){
-        const userId = localStorage.getItem("@USERID")
-        dados = {...dados, owner: userId}
+        dados = {...dados, owner: {id: user?.id, name: user?.name, email: user?.email}, members: []}
       try {
             await Api.post('/histories', dados)
             getHistoriesData()
@@ -55,11 +59,22 @@ const HistoriesProvider = ({children} : IauthProviderProps) => {
             
             console.error(error)
         }
-
+        
     }
 
+    async function removehistories(id: string){
+        try {
+            await Api.delete(`/histories/${id}`)
+            getHistoriesData()
+            navigate('/dashboard')
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+
     return(
-        <HistoriesContext.Provider value={{historiesData, loading, setModalAddOpen,  ModalAddOpen, postNewHistories}}>
+        <HistoriesContext.Provider value={{historiesData, loading, setModalAddOpen,  ModalAddOpen, postNewHistories, removehistories}}>
             {children}
         </HistoriesContext.Provider>
     )

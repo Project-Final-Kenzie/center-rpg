@@ -41,7 +41,7 @@ const Dashboard = () => {
         <ul>
           {historiesData?.map((h: IhistoriesData) => {
             return (
-              <S.History key={`${h.id}`}>
+              <S.History id={`${h.id}`} key={`${h.id}`}>
                 <img src={h.photo} alt={h.title} />
 
                 <p>{h.title}</p>
@@ -49,7 +49,7 @@ const Dashboard = () => {
                 <div>
                   <span>{h.description}</span>
                 </div>
-                <button>Ver Mais</button>
+                <S.LinkStyled to={`/campaign/${h.id}`}>Ver Mais</S.LinkStyled>
               </S.History>
             );
           })}

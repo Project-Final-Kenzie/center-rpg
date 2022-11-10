@@ -34,6 +34,11 @@ textarea:focus, input:focus, select:focus {
     outline: 0;
 } 
 
+@media (max-width: 780px) {
+  html {
+    font-size: 70%;
+  }
+}
 `;
 
 export default GlobalStyle;

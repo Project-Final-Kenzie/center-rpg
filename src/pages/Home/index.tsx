@@ -6,11 +6,20 @@ import { IhistoriesData } from "../../interface/typeHistories";
 import logo from "../../assets/img/d20.svg";
 import { Carousel } from "../../components/carousel";
 
+import { Navigate} from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "../../contexts/AuthContext";
+
 const Home = () => {
   const { historiesData } = UserHistoriesContext();
+  const { user } = useContext(UserContext);
 
   return (
     <>
+    {user ? (
+      <Navigate to='/dashboard'/>
+    ):(
+      <>
       <StyledHeader>
         <div>
           <img src={logo} alt="logotipo" />
@@ -43,7 +52,10 @@ const Home = () => {
         </S.StyledContainer>
       }
     </>
+  )}
+  </>
   );
+
 };
 
 export default Home;

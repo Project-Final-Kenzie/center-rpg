@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import background from "../../assets/img/backgrondhome.png";
 
@@ -146,13 +147,20 @@ export const History = styled.li`
     padding: 7px;
   }
 
-  button {
-    width: 211px;
-    height: 35px;
-    background: ${({ theme }) => theme.colors.yellow.secondary};
-    border-radius: 15px;
-    font-weight: 700;
-    font-size: 15px;
-    color: ${({ theme }) => theme.colors.gray.sextiary};
-  }
 `;
+
+export const LinkStyled = styled(Link)`
+  width: 211px;
+  height: 35px;
+  background: ${({ theme }) => theme.colors.yellow.secondary};
+  border-radius: 15px;
+  font-weight: 700;
+  font-size: 15px;
+  color: ${({ theme }) => theme.colors.gray.sextiary};
+
+  text-decoration: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
