@@ -12,18 +12,19 @@ import { UserContext } from "../../contexts/AuthContext";
 
 const Home = () => {
   const { historiesData } = UserHistoriesContext();
-  const { user } = useContext(UserContext);
+  const token = localStorage.getItem("@TOKEN")
 
   return (
-    <>
-    {user ? (
-      <Navigate to='/dashboard'/>
-    ):(
       <>
       <StyledHeader>
         <div>
           <img src={logo} alt="logotipo" />
-          <S.LinkStyled to={"/login"}>Login</S.LinkStyled>
+          {token? (
+            <S.LinkStyled to={"/dashboard"}>Dashboard</S.LinkStyled>
+          ):(
+            <S.LinkStyled to={"/login"}>Login</S.LinkStyled>
+          )}
+          
         </div>
       </StyledHeader>
       {
@@ -52,8 +53,6 @@ const Home = () => {
         </S.StyledContainer>
       }
     </>
-  )}
-  </>
   );
 
 };
