@@ -5,6 +5,7 @@ import { IhistoriesData} from "../interface/typeHistories";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { UserContext } from "./AuthContext";
+import { useNavigate } from "react-router-dom";
 
 
 interface IHistoriesContext{
@@ -14,6 +15,7 @@ interface IHistoriesContext{
     setModalAddOpen: React.Dispatch<React.SetStateAction<boolean>>
     postNewHistories: (dados: any) => void
     getHistoriesData?: () => Promise<void>
+    removehistories : (id: string) => void
     dados?: any
     members?: any
     owner?: IOwner
@@ -26,6 +28,7 @@ const HistoriesProvider = ({children} : IauthProviderProps) => {
     const { user } = useContext(UserContext)
     const [loading, setLoading] = useState<boolean>(false)
     const [ModalAddOpen, setModalAddOpen] = useState<boolean>(false)
+    const navigate = useNavigate()
        
     const getHistoriesData = async () =>{
         try {
@@ -45,7 +48,6 @@ const HistoriesProvider = ({children} : IauthProviderProps) => {
 
     async function postNewHistories (dados : IHistoriesContext){
         dados = {...dados, owner: {id: user?.id, name: user?.name, email: user?.email}, members: []}
-        console.log(dados)
       try {
             await Api.post('/histories', dados)
             getHistoriesData()
@@ -60,10 +62,19 @@ const HistoriesProvider = ({children} : IauthProviderProps) => {
         
     }
 
+    async function removehistories(id: string){
+        try {
+            await Api.delete(`/histories/${id}`)
+            getHistoriesData()
+            navigate('/dashboard')
+        } catch (error) {
+            console.error(error)
+        }
+    }
 
 
     return(
-        <HistoriesContext.Provider value={{historiesData, loading, setModalAddOpen,  ModalAddOpen, postNewHistories}}>
+        <HistoriesContext.Provider value={{historiesData, loading, setModalAddOpen,  ModalAddOpen, postNewHistories, removehistories}}>
             {children}
         </HistoriesContext.Provider>
     )

@@ -5,11 +5,13 @@ import { useParams } from 'react-router-dom';
 import { Api } from '../../services/api';
 import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../contexts/AuthContext';
+import { UserHistoriesContext } from '../../contexts/HistoriesContext';
 
 
 export const Compaings = ()=> {
     const { id } = useParams();
     const { user } = useContext(UserContext)
+    const { removehistories } = UserHistoriesContext()
     const [ detailHistorie, setDetailHistorie] = useState<any>()
     const [loading , setLoading] = useState<boolean>(true)
 
@@ -36,7 +38,23 @@ export const Compaings = ()=> {
         }
     }
 
+    function adjustButtons(){
+        if(detailHistorie.owner.id === user?.id){
+            return(<button onClick={() => {removehistories(detailHistorie.id)}}>Excluir essa campanha</button>)
+        }else if(detailHistorie.members.some((element : {id : string}) => element.id === `${user?.id}`)){
+            return(<button>Sair da campanha</button>)
+        }else{
+            return(<button onClick={addMember}>Ingressar nessa campanha</button>)
+        }
+    }
 
+    function removeButton(memberId : string, ownerId : string){
+        if(user?.id === ownerId || `${user?.id}` === memberId){
+            return <button>X</button>
+        }
+    }
+
+    
     useEffect(() => {
         getHistorieDetails(id)
     }, [id])
@@ -90,11 +108,11 @@ export const Compaings = ()=> {
                             </div>
                             <div className='dataStyleTwo'>
                                 <h1>Discord da Capanha:</h1>
-                                <S.LinkStyled to={`${detailHistorie.discord}`}>Clique Aqui</S.LinkStyled>
+                                <S.LinkStyled href={`${detailHistorie.discord}`}>Clique Aqui</S.LinkStyled>
                             </div>
                         </S.DivData>
                         <S.DivButton>
-                            <button onClick={addMember}>Ingressar nessa campanha</button>
+                            {adjustButtons()}
                         </S.DivButton>
                         <S.DivUsers>
                             <div className='DivTitleUser'>
@@ -111,14 +129,7 @@ export const Compaings = ()=> {
                                                 <p>Nivel: {member.level}</p>
                                             </div>
                                             <div className='sideTwo'>
-                                                <>{console.log(member.id, user?.id)}</>
-                                            {member.id === user?.id && 
-                                            <>
-                                             <button>X</button>
-                                            </>
-
-                                                }
-                                            
+                                                {removeButton(member.id, detailHistorie.owner.id )}
                                             </div>
                                         </li>
                                         )

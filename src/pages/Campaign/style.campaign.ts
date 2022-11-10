@@ -67,7 +67,7 @@ export const LinkStyledButton = styled(Link)`
 
 `
 
-export const LinkStyled = styled(Link)`
+export const LinkStyled = styled.a`
 
     font-size: 16px;
     color: ${({ theme }) => theme.colors.yellow.secondary};
