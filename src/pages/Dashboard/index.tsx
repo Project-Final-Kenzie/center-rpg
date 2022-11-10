@@ -3,7 +3,7 @@ import { UserHistoriesContext } from "../../contexts/HistoriesContext";
 import logo from "../../assets/img/logo.svg";
 import * as S from "./style.dashboard";
 import { Modal } from "../../components/Modal/modal";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { IhistoriesData } from "../../interface/typeHistories";
 

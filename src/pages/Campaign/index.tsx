@@ -90,7 +90,7 @@ export const Compaings = ()=> {
                                 <img src={detailHistorie.photo} alt=''></img>
                             </div>
                             <div className='sideTwo'>
-                                <h1>Dados do Mestre</h1>
+                                <h2>Dados do Mestre</h2>
                                
                                 <p>Nome: {detailHistorie.owner.name}</p>        
                                 <p>Email: {detailHistorie.owner.email}</p>
@@ -99,16 +99,18 @@ export const Compaings = ()=> {
                         
                         <S.DivData>
                             <div className='dataStyle'>
-                                <h1>Duração da Campanha:</h1>
-                                <p>{detailHistorie.duration}</p>
+                                <h2>
+                                    Duração da Campanha: <strong>{detailHistorie.duration}</strong>
+                                </h2>
                             </div>
                             <div className='dataStyle'>
-                                <h1>Ambienteção:</h1>
-                                <p>{detailHistorie.environment}</p>
+                                <h2>
+                                    Ambienteção: <strong>{detailHistorie.environment}</strong>
+                                </h2>
                             </div>
                             <div className='dataStyleTwo'>
-                                <h1>Discord da Capanha:</h1>
-                                <S.LinkStyled to={`${detailHistorie.discord}`}>Clique Aqui</S.LinkStyled>
+                                <h2>Discord da Capanha:</h2>
+                                <S.LinkStyled href={detailHistorie.discord} target="_blank">Clique Aqui</S.LinkStyled>
                             </div>
                         </S.DivData>
                         <S.DivButton>
@@ -116,7 +118,7 @@ export const Compaings = ()=> {
                         </S.DivButton>
                         <S.DivUsers>
                             <div className='DivTitleUser'>
-                                <h1>Membros da Campanha({detailHistorie.members.length})</h1>
+                                <h2>Membros da Campanha({detailHistorie.members.length})</h2>
                             </div>
 
                             <div className='container'>
@@ -145,8 +147,10 @@ export const Compaings = ()=> {
                     <S.SideTwo>
 
                         <S.DivHistory>
-                            <h1>História</h1>
-                            <p>{detailHistorie.description}</p>
+                            <h2>História</h2>
+                            <div className='historyContainer'>
+                                <p>{detailHistorie.description}</p>
+                            </div>
                         </S.DivHistory>
 
                     </S.SideTwo>

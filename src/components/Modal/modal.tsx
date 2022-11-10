@@ -38,12 +38,12 @@ export const Modal = () => {
           <S.SideOne>
             <S.Form onSubmit={handleSubmit(postNewHistories)}>
               <label htmlFor="title">
-                Nome:
+                Nome da campanha:
                 <StyledInput
                   font="primary"
                   type="text"
                   id="title"
-                  placeholder="Digite seu nome"
+                  placeholder="Digite o nome da sua campanha"
                   {...register("title")}
                 />
                 <div>
