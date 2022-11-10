@@ -1,3 +1,3 @@
 
-export const BaseUrl = "https://rpg-center.herokuapp.com"
+export const BaseUrl = "https://fake-api-rpg-center.herokuapp.com"
 
