@@ -98,7 +98,7 @@ export const Form = styled.form`
   button {
     font-size: 18px;
     font-weight: 500;
-    margin-top: 9rem;
+    margin-top: 8.9rem;
   }
 `;
 
