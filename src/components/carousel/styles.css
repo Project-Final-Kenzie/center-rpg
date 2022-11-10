@@ -1,11 +1,6 @@
-html,
-body {
-  position: relative;
-  height: 100%;
-}
-
 .swiper {
-  width: 60%;
+  width: 90%;
+  max-width: 1400px;
   height: 350px;
   margin-top: 24px;
   margin-bottom: 24px;

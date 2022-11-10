@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-import background from "../../assets/img/background_home.svg";
+import background from "../../assets/img/backgrondhome.png";
 
 export const StyledContainer = styled.main`
   background-image: url(${background});
@@ -7,16 +8,32 @@ export const StyledContainer = styled.main`
   -o-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
-  min-height: 86.5vh;
 
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  div {
+    padding-top: 30px;
+  }
   ul {
     display: flex;
-    width: 60%;
-    margin: auto;
-    flex-wrap: wrap;
-    justify-content: space-between;
     gap: 2rem;
     padding-bottom: 25px;
+
+    display: flex;
+    justify-content: flex-start;
+
+    align-items: center;
+    overflow-x: scroll;
+    flex-wrap: nowrap;
+    padding: 26px;
+
+    @media (min-width: 769px) {
+      flex-wrap: wrap;
+      align-items: center;
+      overflow-x: hidden;
+      justify-content: center;
+    }
   }
 `;
 
@@ -86,8 +103,8 @@ export const History = styled.li`
   gap: 1rem;
 
   img {
-    max-width: 150px;
-    max-height: 150px;
+    width: 150px;
+    height: 150px;
     background: ${({ theme }) => theme.colors.white.primary};
     box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
     border-radius: 100%;
@@ -130,13 +147,20 @@ export const History = styled.li`
     padding: 7px;
   }
 
-  button {
-    width: 211px;
-    height: 35px;
-    background: ${({ theme }) => theme.colors.yellow.secondary};
-    border-radius: 15px;
-    font-weight: 700;
-    font-size: 15px;
-    color: ${({ theme }) => theme.colors.gray.sextiary};
-  }
 `;
+
+export const LinkStyled = styled(Link)`
+  width: 211px;
+  height: 35px;
+  background: ${({ theme }) => theme.colors.yellow.secondary};
+  border-radius: 15px;
+  font-weight: 700;
+  font-size: 15px;
+  color: ${({ theme }) => theme.colors.gray.sextiary};
+
+  text-decoration: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`

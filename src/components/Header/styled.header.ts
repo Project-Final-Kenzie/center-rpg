@@ -5,13 +5,12 @@ export const StyledHeader = styled.header`
   box-shadow: 8px 8px 4px ${({ theme }) => theme.colors.rgb.tertiary};
 
   div {
-    height: 69px;
+    width: 90vw;
     border-radius: 8px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 60%;
     margin: auto;
   }
 

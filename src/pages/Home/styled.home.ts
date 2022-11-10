@@ -1,25 +1,39 @@
 import styled from "styled-components";
-import background from "../../assets/img/background_home.svg";
+import background from "../../assets/img/backgrondhome.png";
 import { Link } from "react-router-dom";
 
 export const StyledContainer = styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-image: url(${background});
   -webkit-background-size: cover;
   -o-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
-  min-height: 86.5vh;
+  min-height: 100vh;
 
   ul {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-    width: 60%;
-    margin: 0 auto;
-    padding: 5px;
+
+    @media (min-width: 1440px) {
+      overflow-x: hidden;
+      justify-content: center;
+    }
+
+    overflow-x: scroll;
+    justify-content: flex-start;
+
     flex-wrap: wrap;
-    padding-bottom: 25px;
+    align-items: center;
+
+    gap: 2rem;
+
+    width: 90vw;
+    height: 55vh;
+    flex-wrap: nowrap;
+
+    margin-bottom: 20px;
   }
 `;
 
@@ -47,9 +61,9 @@ export const LinkStyled = styled(Link)`
 `;
 
 export const LinkStyledRedirect = styled(Link)`
-  width: 211px;
+  width: 80%;
   height: 35px;
-  background: #f2ef33;
+  background: ${({ theme }) => theme.colors.yellow.secondary};
   border-radius: 15px;
   font-weight: 700;
   font-size: 15px;
@@ -64,31 +78,40 @@ export const LinkStyledRedirect = styled(Link)`
 
 export const History = styled.li`
   background: ${({ theme }) => theme.colors.rgb.primary};
+  box-shadow: none;
 
-  box-shadow: 0px 10px 64px ${({ theme }) => theme.colors.rgb.primary};
   border-radius: 30px;
+  padding: 1rem;
 
+  min-width: 300px;
   height: 445.24237060546875px;
-  width: 249px;
 
   border-radius: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  align-items: center;
+  justify-content: center;
   gap: 1rem;
 
   img {
-    max-width: 150px;
-    max-height: 150px;
+    width: 150px;
+    height: 150px;
     background: ${({ theme }) => theme.colors.white.primary};
     box-shadow: 0px 4px 4px ${({ theme }) => theme.colors.rgb.tertiary};
     border-radius: 100%;
-    margin: 5px;
+  }
+  div::-webkit-scrollbar {
+    display: none;
   }
   div {
-    width: 229px;
-    height: 159px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    width: 100%;
+    height: 150px;
     background: ${({ theme }) => theme.colors.gray.setiary};
     box-shadow: 0px 4px 4px ${({ theme }) => theme.colors.rgb.tertiary};
     border-radius: 8px;
@@ -101,8 +124,6 @@ export const History = styled.li`
     font-size: 20px;
     line-height: 30px;
 
-    display: flex;
-    align-items: center;
     text-align: center;
 
     color: ${({ theme }) => theme.colors.yellow.tertiary};
@@ -114,22 +135,21 @@ export const History = styled.li`
     font-weight: 300;
     font-size: 12px;
     line-height: 20px;
+    text-align: center;
+    color: ${({ theme }) => theme.colors.white.primary};
 
-    display: flex;
-    align-items: center;
-
-    color: ${({ theme }) => theme.colors.white.primary};;
-
-    padding: 7px;
+    padding: 0.5rem;
   }
 
   button {
-    width: 211px;
+    width: 80%;
     height: 35px;
-    background: ${({ theme }) => theme.colors.yellow.secondary};;
     border-radius: 15px;
     font-weight: 700;
     font-size: 15px;
+    background: ${({ theme }) => theme.colors.yellow.secondary};
     color: ${({ theme }) => theme.colors.gray.sextiary};
+  }
+  @media (min-width: 768px) {
   }
 `;
