@@ -20,23 +20,26 @@ const Dashboard = () => {
 
   return (
     <>
+      {ModalAddOpen && <Modal />}
+
+      <StyledHeader>
+        <div>
+          <img src={logo} alt="logotipo" />
+          <S.Logout onClick={logout}>Logout</S.Logout>
+        </div>
+      </StyledHeader>
       <S.StyledContainer>
-        {ModalAddOpen && <Modal />}
-        <StyledHeader>
-          <div>
-            <img src={logo} alt="logotipo" />
-            <S.Logout onClick={logout}>Logout</S.Logout>
-          </div>
-        </StyledHeader>
-        <S.CreateCamp
-          onClick={() => {
-            setModalAddOpen(true);
-          }}
-        >
-          Criar Campanha
-        </S.CreateCamp>
+        <div>
+          <S.CreateCamp
+            onClick={() => {
+              setModalAddOpen(true);
+            }}
+          >
+            Criar Campanha
+          </S.CreateCamp>
+        </div>
         <ul>
-          {historiesData?.map((h : IhistoriesData) => {
+          {historiesData?.map((h: IhistoriesData) => {
             return (
               <S.History key={`${h.id}`}>
                 <img src={h.photo} alt={h.title} />
