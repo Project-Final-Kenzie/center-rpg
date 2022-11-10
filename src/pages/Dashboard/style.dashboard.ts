@@ -9,7 +9,7 @@ export const StyledContainer = styled.main`
   background-size: cover;
 
   display: flex;
-  min-height: 95vh;
+  min-height: 100vh;
   flex-direction: column;
   div {
     padding-top: 30px;
