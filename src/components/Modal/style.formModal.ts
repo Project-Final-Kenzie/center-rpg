@@ -1,16 +1,21 @@
 import styled from "styled-components";
 
 export const DivMain = styled.div`
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
+  position: fixed;
+
   background-color: ${({ theme }) => theme.colors.gray.primary};
+
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
 `;
 
 export const DivContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.gray.secondary};
-  width: 900px;
-  height: 700px;
+  width: 80%;
+  padding-bottom: 5px;
   border-radius: 10px;
 
   position: absolute;
@@ -18,20 +23,8 @@ export const DivContainer = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
 
-  @media (max-width: 1024px) {
-    left: 46.5%;
-  }
-
-  @media (max-width: 768px) {
-    width: 740px;
-    height: 550px;
-    left: 48%;
-  }
-
-  @media (max-width: 425px) {
-    width: 420px;
-    height: 900px;
-  }
+  display: flex;
+  flex-direction: column;
 `;
 
 export const ButtonClose = styled.div`
@@ -54,10 +47,11 @@ export const Title = styled.div`
   align-items: center;
   justify-content: center;
 
+  margin-bottom: 37px;
+
   h1 {
     font-size: 2rem;
     font-weight: 500;
-    line-height: 1rem;
     color: ${({ theme }) => theme.colors.yellow.secondary};
     text-align: center;
   }
@@ -67,13 +61,7 @@ export const DivContainerForm = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 50px auto;
-  width: 800px;
-  height: 500px;
-
-  @media (max-width: 425px) {
-    flex-direction: column;
-  }
+  flex-direction: column;
 `;
 
 export const Form = styled.form`
@@ -110,6 +98,7 @@ export const Form = styled.form`
   button {
     font-size: 18px;
     font-weight: 500;
+    margin-top: 8.9rem;
   }
 `;
 
@@ -130,21 +119,14 @@ export const SideTwo = styled.div`
   }
 
   textarea {
-    min-width: 400px;
-    max-width: 400px;
-    min-height: 360px;
-    max-height: 360px;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 100px;
+    max-height: 100px;
     border-radius: 40px 0 40px 0;
     font-size: 0.9rem;
     letter-spacing: 1px;
     line-height: 1.5;
     padding: 15px;
-  }
-
-  @media (max-width: 768px) {
-    textarea {
-      min-width: 340px;
-      max-width: 340px;
-    }
   }
 `;
