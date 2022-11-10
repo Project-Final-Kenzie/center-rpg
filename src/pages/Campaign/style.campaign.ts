@@ -2,18 +2,18 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import background from '../../assets/img/bkgcamp.png';
 
-export const DivBody = styled.body`
+export const DivBody = styled.main`
 	background-image: url(${background});
+	display: flex;
+	align-items: center;
 	-webkit-background-size: cover;
 	-o-background-size: cover;
 	-moz-background-size: cover;
 	background-size: cover;
-	@media (min-width: 768px) {
-		height: 100vh;
-	}
+	height: 100vh;
 `;
 
-export const DivMain = styled.main`
+export const DivMain = styled.div`
 	max-width: 980px;
 	width: 90%;
 	background-color: ${({ theme }) => theme.colors.rgb.quartiary};
