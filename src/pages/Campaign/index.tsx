@@ -1,6 +1,6 @@
 import { StyledHeader } from '../../components/Header/styled.header';
 import * as S from './style.campaign';
-import logo from "../../assets/img/d20.svg";
+import logo from '../../assets/img/d20.svg';
 import { useParams } from 'react-router-dom';
 import { Api } from '../../services/api';
 import { useContext, useEffect, useState } from 'react';
@@ -62,29 +62,29 @@ export const Compaings = ()=> {
     if(loading){
         return <p>Caregando</p>;
     }
-    return(
-        <S.DivBody>
-            <StyledHeader>
-                <nav>
-                    <div>
-                        <img src={logo} alt="Central RPG" />
-                        <S.LinkStyledButton to={"/dashboard"}>Voltar</S.LinkStyledButton>
-                    </div>
-                </nav>
-            </StyledHeader>
 
-            <S.DivMain>
+	return (
+		<>
+			<StyledHeader>
+				<nav>
+					<div>
+						<img src={logo} alt='Central RPG' />
+						<S.LinkStyledButton to={'/dashboard'}>Voltar</S.LinkStyledButton>
+					</div>
+				</nav>
+			</StyledHeader>
 
+
+			<S.DivBody>
+				<S.DivMain>
                 <S.DivTitle>
                     <h1>Seja bem vindo a campanha</h1>
                    
                     <h3>{detailHistorie.title}</h3>
                 </S.DivTitle>
 
-                <S.DivContainer>
-
-                    <S.SideOne>
-
+					<S.DivContainer>
+						<S.SideOne>
                         <S.DivMaster>
                             <div className='sideOne'>
                                 <img src={detailHistorie.photo} alt=''></img>
@@ -108,7 +108,7 @@ export const Compaings = ()=> {
                             </div>
                             <div className='dataStyleTwo'>
                                 <h1>Discord da Capanha:</h1>
-                                <S.LinkStyled href={`${detailHistorie.discord}`}>Clique Aqui</S.LinkStyled>
+                                <S.LinkStyled to={`${detailHistorie.discord}`}>Clique Aqui</S.LinkStyled>
                             </div>
                         </S.DivData>
                         <S.DivButton>
@@ -156,7 +156,6 @@ export const Compaings = ()=> {
             </S.DivMain>
 
         </S.DivBody>
+        </>
     )
-
 }
-
