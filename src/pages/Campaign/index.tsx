@@ -90,7 +90,13 @@ export const Compaings = () => {
 					<S.SideTwo>
 						<S.DivHistory>
 							<h2>História</h2>
-							<p>testestestestestes</p>
+							<div className='historyContainer'>
+								<p>
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate molestias vitae, consectetur ut incidunt
+									provident illo ipsum eos, perspiciatis illum debitis adipisci soluta nobis ad dolore sapiente accusantium eum
+									laudantium!
+								</p>
+							</div>
 						</S.DivHistory>
 					</S.SideTwo>
 				</S.DivContainer>

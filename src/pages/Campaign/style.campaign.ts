@@ -137,16 +137,19 @@ export const DivMaster = styled.div`
 			color: ${({ theme }) => theme.colors.white.primary};
 			font-weight: 200;
 		}
-
-		@media (max-width: 500px) {
-			margin-top: 0px;
-		}
 	}
+	@media (max-width: 780px) {
+		display: flex;
 
-	@media (max-width: 500px) {
+		border-radius: 20px 8px 20px 8px;
 		.sideOne {
+			border-radius: 20px 8px 20px 8px;
+
 			width: 40%;
 			height: 20%;
+		}
+		.sideTwo {
+			margin: 0;
 		}
 	}
 `;
@@ -251,7 +254,7 @@ export const DivUsers = styled.div`
 			color: ${({ theme }) => theme.colors.gray.primary};
 		}
 
-		@media (max-width: 500px) {
+		@media (max-width: 780px) {
 			border-radius: 20px 8px 20px 8px;
 		}
 	}
@@ -264,12 +267,27 @@ export const DivHistory = styled.div`
 		width: 100%;
 		text-align: center;
 	}
-
-	p {
+	.historyContainer {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 		background-color: ${({ theme }) => theme.colors.white.primary};
 		height: 500px;
 		border-radius: 80px 8px 80px 8px;
-		font-size: 0.99rem;
-		padding: 50px;
+		align-items: center;
+
+		p {
+			font-size: 0.99rem;
+			width: 90%;
+			height: 80%;
+		}
+	}
+	@media (max-width: 780px) {
+		.historyContainer {
+			height: 280px;
+			p {
+				width: 70%;
+			}
+		}
 	}
 `;
